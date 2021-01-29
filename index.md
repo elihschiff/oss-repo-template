@@ -1,8 +1,7 @@
 # Open Source Software - Summer 2019
-## (( Your Name Here ))
+## Eli Schiff
 
 ## Bio
-(( Put a little bit about yourself here! Also include a photo. ))
+Github: https://github.com/elihschiff
 
-## Lab Reports
-[Lab 1](labs/lab-01/report.md)
+Photo of Me ![Eli](images/eli.jpg)
