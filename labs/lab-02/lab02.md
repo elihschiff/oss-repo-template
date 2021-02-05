@@ -1,5 +1,6 @@
 # Part 1
-https://github.com/elihschiff/oss-lab2
+##### My new repo
+https://github.com/elihschiff/lab2part1
 
 ##### gitk
 ![gitk](gitk.png)
@@ -18,11 +19,15 @@ https://github.com/elihschiff/Spoon-Knife
 
 
 # Part 3
-
+##### My forked repo
 https://github.com/elihschiff/PullReq
 
-##### git diff
+##### git diff HEAD~1
 ![gitdiff](gitdiff.png)
 
-##### git tag
+##### git tag -l
 ![gittag](gittag.png)
+
+
+##### Fork of project ideas
+https://github.com/elihschiff/OSSProjectIdeas
