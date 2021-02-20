@@ -17,10 +17,8 @@ Linux uses the gpl v2 license because of 2 main reasons. The first reason is bec
 One source I used https://lwn.net/Articles/200422/ I have also in the past listened to multiple talks on the topic.
 
 ##### 7
-Our business model is making a program that helps people select the best license for them based on a survey about their project. To profit our business model is going to be donation based so as it is open to anyone even if they cannot afford it.
-Our business will use the MIT license. We like this license because it is very flexible. We want attribution, but other than that we want everyone to be able to improve our project with limited restrictions. Also because our busness is targeting open source beginners, the mit license is very short and easy to read.
-
-Our new repo with the mit license in it https://github.com/elihschiff/license-picker
+Here is our business repo with the required information about the business:
+https://github.com/tremps/EstimatePi
 
 ##### 8
 Website | License Present | License
