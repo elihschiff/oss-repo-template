@@ -47,6 +47,9 @@ $H_4 = \begin{bmatrix}
   remotes/origin/windows_support
   ```
 
+  Here is a link with all the other information from the members of my group if you would like to take a look:
+  [other data](data.pdf)
+
 ##### Gitstats
 As to be expected the results from gitstats are the same for data I collected such as line numbers. Gitstats however takes theses results one step further. For example it shows that yacs has added 70769 lines and removed 33353 lines of code. It is also interesting to see that they have .8 commits per day and that the project is 246 days old. The ammount of graphs and other
 ![gitstat](gitstat.png)
