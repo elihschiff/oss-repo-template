@@ -1,30 +1,126 @@
-# Part 1
-##### License
-![Creative Commons License](https://i.creativecommons.org/l/by/4.0/88x31.png) This work is licensed under a http://creativecommons.org/licenses/by/4.0/ Creative Commons Attribution 4.0 International License.
+# Steps
+##### Step 1
+CMakeLists.txt
+```
+cmake_minimum_required(VERSION 3.10)
 
-##### 3 Why it is important to choose a LICENSE
-If you dont choose a license, then by default your code is closed source. This means that other people cannnot use or modify your code. A license makes it clear exactly what rules you want other people to follow when looking at and using your code. The key to remember is that just because people can see your code does not automatically make it open source. It needs a license.
+# set the project name and version
+project(Tutorial VERSION 1.0)
 
-##### 4 Why is it important that you SHOULDN'T use a project that doesn't have an explicit license?
-If a project does not have a license, then that code is closed source and somebody owns it. If they wanted to, they could come after you and you would be in the wrong. Making sure there is a license and that you follow the rules in that license avoids that issue alltogether.
+# specify the C++ standard
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-##### 5 Read the Failure to follow the Open System Model Section of Why the Web beat Gopher. Do you agree with this claim?
-I do agree with this claim. At the end of the day, the web is a place to share information. Therefore whatever tecnology that improves this core task is going to be more popular. Gopher did a bad job at this compared to the hypertext model. As we have explored so far in this class, the reason open source is so successful is because it allows people to share ideas and collaborate. When it came to the web, hypertext just did a better job at that which is why it survived.
 
-##### 6 Can you justify why such a license is chosen based on the history, goals and philosophy of the project? (Justification for ONE choice is enough, but be specific and make sure you provide references to articles or web resources).
-Linux uses the gpl v2 license because of 2 main reasons. The first reason is because the entire point of linux is to be open source. So it makes sense they choose an open source license. However why the gpl v2 license? This goes to the the fact that linux does not want to control what others do with linux. The only request they make, is that people who make changes contribute those back to the core linux branch. This makes a lot of sense, if you do some work to improve linux it is only fair you give back to the community so that everyone can have a better experience using linux.
+configure_file(TutorialConfig.h.in TutorialConfig.h)
 
-One source I used https://lwn.net/Articles/200422/ I have also in the past listened to multiple talks on the topic.
+# add the executable
+add_executable(Tutorial tutorial.cxx)
 
-##### 7
-Here is our business repo with the required information about the business:
-https://github.com/tremps/EstimatePi
 
-##### 8
-Website | License Present | License
----------|:----------|:-------
-https://github.com/shinoka7/aips | Yes | MIT License https://mit-license.org/
-https://github.com/gmisail/dormdesign | Yes | MIT License https://mit-license.org/
-https://github.com/natsr4/exalendar | Yes | BSD-2-Clause License  https://opensource.org/licenses/BSD-2-Clause
-https://github.com/flomv2/flom | Yes | MIT License https://mit-license.org/
-https://github.com/opencircuits/opencircuits | Yes | GPL-3.0 License https://www.gnu.org/licenses/gpl-3.0.en.html
+target_include_directories(Tutorial PUBLIC
+                           "${PROJECT_BINARY_DIR}"
+                           )
+
+```
+TutorialConfig.h.in
+```
+// the configured options and settings for Tutorial
+#define Tutorial_VERSION_MAJOR @Tutorial_VERSION_MAJOR@
+#define Tutorial_VERSION_MINOR @Tutorial_VERSION_MINOR@
+```
+Image of sample input
+![step1](step1.png)
+
+##### Step 2
+CMakeLists.txt (inside MathFunctions folder)
+```
+add_library(MathFunctions mysqrt.cxx)
+
+```
+CMakeLists.txt (root directory)
+```
+cmake_minimum_required(VERSION 3.10)
+
+# set the project name and version
+project(Tutorial VERSION 1.0)
+
+# specify the C++ standard
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+
+option(USE_MYMATH "Use tutorial provided math implementation" ON)
+
+# configure a header file to pass some of the CMake settings
+# to the source code
+configure_file(TutorialConfig.h.in TutorialConfig.h)
+
+
+if(USE_MYMATH)
+  add_subdirectory(MathFunctions)
+  list(APPEND EXTRA_LIBS MathFunctions)
+  list(APPEND EXTRA_INCLUDES "${PROJECT_SOURCE_DIR}/MathFunctions")
+endif()
+
+# add the executable
+add_executable(Tutorial tutorial.cxx)
+
+target_link_libraries(Tutorial PUBLIC ${EXTRA_LIBS})
+
+# add the binary tree to the search path for include files
+# so that we will find TutorialConfig.h
+target_include_directories(Tutorial PUBLIC
+                           "${PROJECT_BINARY_DIR}"
+                           ${EXTRA_INCLUDES}
+                           )
+
+
+```
+Tutorial.cxx
+```
+// A simple program that computes the square root of a number
+#include <cmath>
+#include <iostream>
+#include <string>
+
+#include "TutorialConfig.h"
+
+// should we include the MathFunctions header?
+#ifdef USE_MYMATH
+#  include "MathFunctions.h"
+#endif
+
+int main(int argc, char* argv[])
+{
+  if (argc < 2) {
+    // report version
+    std::cout << argv[0] << " Version " << Tutorial_VERSION_MAJOR << "."
+              << Tutorial_VERSION_MINOR << std::endl;
+    std::cout << "Usage: " << argv[0] << " number" << std::endl;
+    return 1;
+  }
+
+  // convert input to double
+  const double inputValue = std::stod(argv[1]);
+
+  // which square root function should we use?
+#ifdef USE_MYMATH
+  const double outputValue = mysqrt(inputValue);
+#else
+  const double outputValue = sqrt(inputValue);
+#endif
+
+  std::cout << "The square root of " << inputValue << " is " << outputValue
+            << std::endl;
+  return 0;
+}
+```
+TutorialConfig.h.in
+```
+// the configured options and settings for Tutorial
+#define Tutorial_VERSION_MAJOR @Tutorial_VERSION_MAJOR@
+#define Tutorial_VERSION_MINOR @Tutorial_VERSION_MINOR@
+```
+Image of sample input
+![step2](step2.png)
