@@ -849,3 +849,7 @@ cmake_check_build_system:
 
 Comparision of sizes for my Makefile as well as the cmake version. Both are the same size
 ![sizes](sizes.png)
+
+
+output of running the program
+![output](output.png)
