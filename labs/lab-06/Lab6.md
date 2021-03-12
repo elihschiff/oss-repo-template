@@ -7,3 +7,5 @@
 # Step 4
 [Code for step 4](plot_words_4.py)
 [Output for step 4](output_4.txt)
+
+I implemented this by adding a for loop that inserts the cc variable at every point inside the left+right word. This means that for my code, everything is the same except instead of just inserting the cc letter in the middle of left+right, it tries every location within the left+right string.
