@@ -1,0 +1,13 @@
+# Target labels
+ ExportLanguagesTest
+# Source files and their labels
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/ObjectLibrary/ExportLanguages/CMakeFiles/ExportLanguagesTest
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/ObjectLibrary/ExportLanguages/CMakeFiles/ExportLanguagesTest.rule
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/ObjectLibrary/ExportLanguages/CMakeFiles/ExportLanguagesTest-complete.rule
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/ObjectLibrary/ExportLanguages/ExportLanguagesTest-prefix/src/ExportLanguagesTest-stamp/ExportLanguagesTest-build.rule
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/ObjectLibrary/ExportLanguages/ExportLanguagesTest-prefix/src/ExportLanguagesTest-stamp/ExportLanguagesTest-configure.rule
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/ObjectLibrary/ExportLanguages/ExportLanguagesTest-prefix/src/ExportLanguagesTest-stamp/ExportLanguagesTest-download.rule
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/ObjectLibrary/ExportLanguages/ExportLanguagesTest-prefix/src/ExportLanguagesTest-stamp/ExportLanguagesTest-install.rule
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/ObjectLibrary/ExportLanguages/ExportLanguagesTest-prefix/src/ExportLanguagesTest-stamp/ExportLanguagesTest-mkdir.rule
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/ObjectLibrary/ExportLanguages/ExportLanguagesTest-prefix/src/ExportLanguagesTest-stamp/ExportLanguagesTest-patch.rule
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/ObjectLibrary/ExportLanguages/ExportLanguagesTest-prefix/src/ExportLanguagesTest-stamp/ExportLanguagesTest-update.rule

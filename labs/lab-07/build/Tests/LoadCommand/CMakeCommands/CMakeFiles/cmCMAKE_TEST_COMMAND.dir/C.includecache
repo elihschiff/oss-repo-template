@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/eli/documents/cmake/Source/cmCPluginAPI.h
+
+/home/eli/documents/cmake/Tests/LoadCommand/CMakeCommands/cmTestCommand.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+cmCPluginAPI.h
+/home/eli/documents/cmake/Tests/LoadCommand/CMakeCommands/cmCPluginAPI.h
+

@@ -1,0 +1,6 @@
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/COnly/CMakeFiles/edit_cache.dir
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/COnly/CMakeFiles/testCModule.dir
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/COnly/CMakeFiles/COnly.dir
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/COnly/CMakeFiles/rebuild_cache.dir
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/COnly/CMakeFiles/testc2.dir
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/COnly/CMakeFiles/testc1.dir

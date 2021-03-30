@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/ObjectLibrary/ExportLanguages/CMakeFiles/ExportLanguagesTest"
+		},
+		{
+			"file" : "/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/ObjectLibrary/ExportLanguages/CMakeFiles/ExportLanguagesTest.rule"
+		},
+		{
+			"file" : "/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/ObjectLibrary/ExportLanguages/CMakeFiles/ExportLanguagesTest-complete.rule"
+		},
+		{
+			"file" : "/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/ObjectLibrary/ExportLanguages/ExportLanguagesTest-prefix/src/ExportLanguagesTest-stamp/ExportLanguagesTest-build.rule"
+		},
+		{
+			"file" : "/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/ObjectLibrary/ExportLanguages/ExportLanguagesTest-prefix/src/ExportLanguagesTest-stamp/ExportLanguagesTest-configure.rule"
+		},
+		{
+			"file" : "/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/ObjectLibrary/ExportLanguages/ExportLanguagesTest-prefix/src/ExportLanguagesTest-stamp/ExportLanguagesTest-download.rule"
+		},
+		{
+			"file" : "/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/ObjectLibrary/ExportLanguages/ExportLanguagesTest-prefix/src/ExportLanguagesTest-stamp/ExportLanguagesTest-install.rule"
+		},
+		{
+			"file" : "/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/ObjectLibrary/ExportLanguages/ExportLanguagesTest-prefix/src/ExportLanguagesTest-stamp/ExportLanguagesTest-mkdir.rule"
+		},
+		{
+			"file" : "/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/ObjectLibrary/ExportLanguages/ExportLanguagesTest-prefix/src/ExportLanguagesTest-stamp/ExportLanguagesTest-patch.rule"
+		},
+		{
+			"file" : "/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/ObjectLibrary/ExportLanguages/ExportLanguagesTest-prefix/src/ExportLanguagesTest-stamp/ExportLanguagesTest-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"ExportLanguagesTest"
+		],
+		"name" : "ExportLanguagesTest"
+	}
+}

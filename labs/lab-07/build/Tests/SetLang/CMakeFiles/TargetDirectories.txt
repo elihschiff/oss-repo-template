@@ -1,0 +1,5 @@
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/SetLang/CMakeFiles/rebuild_cache.dir
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/SetLang/CMakeFiles/edit_cache.dir
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/SetLang/CMakeFiles/zoom.dir
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/SetLang/CMakeFiles/SetLang.dir
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/SetLang/CMakeFiles/foo.dir

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="Linux-c++"
+	BuildStamp="20210330-0152-Experimental"
+	Name="eliarch"
+	Generator="ctest-3.20.0"
+	CompilerName="/usr/bin/c++"
+	CompilerVersion="10.2.0"
+	OSName="Linux"
+	Hostname="eliarch"
+	OSRelease="5.11.10-arch1-1"
+	OSVersion="#1 SMP PREEMPT Fri, 26 Mar 2021 00:11:29 +0000"
+	OSPlatform="x86_64"
+	Is64Bits="1"
+	VendorString="AuthenticAMD"
+	VendorID="Advanced Micro Devices"
+	FamilyID="23"
+	ModelID="113"
+	ProcessorCacheSize="512"
+	NumberOfLogicalCPU="16"
+	NumberOfPhysicalCPU="8"
+	TotalVirtualMemory="16402"
+	TotalPhysicalMemory="32117"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="2200"
+	>
+	<CoverageLog>
+		<StartDateTime>Mar 29 21:59 EDT</StartDateTime>
+		<StartTime>1617069589</StartTime>
+		<EndDateTime>Mar 29 21:59 EDT</EndDateTime>
+		<EndTime>1617069589</EndTime>
+	</CoverageLog>
+</Site>

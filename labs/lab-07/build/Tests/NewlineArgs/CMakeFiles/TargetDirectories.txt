@@ -1,0 +1,4 @@
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/NewlineArgs/CMakeFiles/rebuild_cache.dir
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/NewlineArgs/CMakeFiles/edit_cache.dir
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/NewlineArgs/CMakeFiles/NewlineArgs.dir
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/NewlineArgs/CMakeFiles/testcxx1.dir

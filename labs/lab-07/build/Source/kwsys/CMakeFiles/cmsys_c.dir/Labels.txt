@@ -1,0 +1,17 @@
+# Source files and their labels
+/home/eli/documents/cmake/Source/kwsys/ProcessUNIX.c
+/home/eli/documents/cmake/Source/kwsys/Base64.c
+/home/eli/documents/cmake/Source/kwsys/EncodingC.c
+/home/eli/documents/cmake/Source/kwsys/MD5.c
+/home/eli/documents/cmake/Source/kwsys/Terminal.c
+/home/eli/documents/cmake/Source/kwsys/System.c
+/home/eli/documents/cmake/Source/kwsys/String.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Source/cmsys/Configure.h
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Source/cmsys/SharedForward.h
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Source/cmsys/Process.h
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Source/cmsys/Base64.h
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Source/cmsys/Encoding.h
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Source/cmsys/MD5.h
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Source/cmsys/Terminal.h
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Source/cmsys/System.h
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Source/cmsys/String.h

@@ -1,0 +1,6 @@
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/CxxSubdirC/CMakeFiles/rebuild_cache.dir
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/CxxSubdirC/CMakeFiles/edit_cache.dir
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/CxxSubdirC/CMakeFiles/CxxSubdirC.dir
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/CxxSubdirC/Cdir/CMakeFiles/rebuild_cache.dir
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/CxxSubdirC/Cdir/CMakeFiles/edit_cache.dir
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/CxxSubdirC/Cdir/CMakeFiles/Cobj.dir

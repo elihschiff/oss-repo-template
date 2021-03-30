@@ -1,0 +1,5 @@
+method=custom
+command=
+source_dir=/home/eli/documents/cmake/Tests/ObjectLibrary/ExportLanguages/ExportLanguagesTest
+work_dir=/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/ObjectLibrary/ExportLanguages/ExportLanguagesTest-prefix/src
+

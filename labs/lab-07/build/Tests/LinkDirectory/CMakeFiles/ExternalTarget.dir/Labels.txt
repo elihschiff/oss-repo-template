@@ -1,0 +1,14 @@
+# Target labels
+ ExternalTarget
+# Source files and their labels
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/LinkDirectory/CMakeFiles/ExternalTarget
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/LinkDirectory/CMakeFiles/ExternalTarget.rule
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/LinkDirectory/CMakeFiles/ExternalTarget-complete.rule
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/LinkDirectory/External-build/root/src/ExternalTarget-stamp/ExternalTarget-build.rule
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/LinkDirectory/External-build/root/src/ExternalTarget-stamp/ExternalTarget-cleanup.rule
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/LinkDirectory/External-build/root/src/ExternalTarget-stamp/ExternalTarget-configure.rule
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/LinkDirectory/External-build/root/src/ExternalTarget-stamp/ExternalTarget-download.rule
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/LinkDirectory/External-build/root/src/ExternalTarget-stamp/ExternalTarget-install.rule
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/LinkDirectory/External-build/root/src/ExternalTarget-stamp/ExternalTarget-mkdir.rule
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/LinkDirectory/External-build/root/src/ExternalTarget-stamp/ExternalTarget-patch.rule
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/LinkDirectory/External-build/root/src/ExternalTarget-stamp/ExternalTarget-update.rule

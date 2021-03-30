@@ -1,0 +1,3431 @@
+Determining if the environ exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_a0591/fast && /usr/bin/make  -f CMakeFiles/cmTC_a0591.dir/build.make CMakeFiles/cmTC_a0591.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a0591.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -std=gnu11 -o CMakeFiles/cmTC_a0591.dir/CheckSymbolExists.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘environ’ undeclared (first use in this function)
+    8 |   return ((int*)(&environ))[argc];
+      |                   ^~~~~~~
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_a0591.dir/build.make:78: CMakeFiles/cmTC_a0591.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_a0591/fast] Error 2
+
+
+File /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef environ
+  return ((int*)(&environ))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_62f88/fast && /usr/bin/make  -f CMakeFiles/cmTC_62f88.dir/build.make CMakeFiles/cmTC_62f88.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_62f88.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -std=gnu11 -o CMakeFiles/cmTC_62f88.dir/src.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_62f88
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_62f88.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_62f88.dir/src.c.o -o cmTC_62f88 
+/usr/bin/ld: CMakeFiles/cmTC_62f88.dir/src.c.o: in function `main':
+src.c:(.text+0x3e): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x4a): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x56): undefined reference to `pthread_cancel'
+/usr/bin/ld: src.c:(.text+0x67): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_62f88.dir/build.make:99: cmTC_62f88] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_62f88/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_89008/fast && /usr/bin/make  -f CMakeFiles/cmTC_89008.dir/build.make CMakeFiles/cmTC_89008.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_89008.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create -std=gnu11 -o CMakeFiles/cmTC_89008.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.20/Modules/CheckFunctionExists.c
+Linking C executable cmTC_89008
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_89008.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_89008.dir/CheckFunctionExists.c.o -o cmTC_89008  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_89008.dir/build.make:99: cmTC_89008] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_89008/fast] Error 2
+
+
+
+Checking whether CXX compiler has environ in stdlib.h failed to compile with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/Source/kwsys/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_7a59b/fast && /usr/bin/make  -f CMakeFiles/cmTC_7a59b.dir/build.make CMakeFiles/cmTC_7a59b.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/Source/kwsys/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_7a59b.dir/kwsysPlatformTestsCXX.cxx.o
+/usr/bin/c++ -DTEST_KWSYS_CXX_HAS_ENVIRON_IN_STDLIB_H  -std=gnu++17 -o CMakeFiles/cmTC_7a59b.dir/kwsysPlatformTestsCXX.cxx.o -c /home/eli/documents/cmake/Source/kwsys/kwsysPlatformTestsCXX.cxx
+/home/eli/documents/cmake/Source/kwsys/kwsysPlatformTestsCXX.cxx: In function ‘int main()’:
+/home/eli/documents/cmake/Source/kwsys/kwsysPlatformTestsCXX.cxx:53:13: error: ‘environ’ was not declared in this scope; did you mean ‘union’?
+   53 |   char* e = environ[0];
+      |             ^~~~~~~
+      |             union
+make[1]: *** [CMakeFiles/cmTC_7a59b.dir/build.make:78: CMakeFiles/cmTC_7a59b.dir/kwsysPlatformTestsCXX.cxx.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/Source/kwsys/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_7a59b/fast] Error 2
+
+
+
+Checking whether CXX compiler struct stat has st_mtimespec member failed to compile with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/Source/kwsys/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_eaf30/fast && /usr/bin/make  -f CMakeFiles/cmTC_eaf30.dir/build.make CMakeFiles/cmTC_eaf30.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/Source/kwsys/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_eaf30.dir/kwsysPlatformTestsCXX.cxx.o
+/usr/bin/c++ -DTEST_KWSYS_CXX_STAT_HAS_ST_MTIMESPEC  -std=gnu++17 -o CMakeFiles/cmTC_eaf30.dir/kwsysPlatformTestsCXX.cxx.o -c /home/eli/documents/cmake/Source/kwsys/kwsysPlatformTestsCXX.cxx
+/home/eli/documents/cmake/Source/kwsys/kwsysPlatformTestsCXX.cxx: In function ‘int main()’:
+/home/eli/documents/cmake/Source/kwsys/kwsysPlatformTestsCXX.cxx:26:15: error: ‘struct stat’ has no member named ‘st_mtimespec’
+   26 |   (void)stat1.st_mtimespec.tv_sec;
+      |               ^~~~~~~~~~~~
+/home/eli/documents/cmake/Source/kwsys/kwsysPlatformTestsCXX.cxx:27:15: error: ‘struct stat’ has no member named ‘st_mtimespec’
+   27 |   (void)stat1.st_mtimespec.tv_nsec;
+      |               ^~~~~~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_eaf30.dir/build.make:78: CMakeFiles/cmTC_eaf30.dir/kwsysPlatformTestsCXX.cxx.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/Source/kwsys/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_eaf30/fast] Error 2
+
+
+
+Determining if the function connect exists in the socket;dl failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_a2d5a/fast && /usr/bin/make  -f CMakeFiles/cmTC_a2d5a.dir/build.make CMakeFiles/cmTC_a2d5a.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a2d5a.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -w -DCHECK_FUNCTION_EXISTS=connect -std=gnu11 -o CMakeFiles/cmTC_a2d5a.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.20/Modules/CheckFunctionExists.c
+Linking C executable cmTC_a2d5a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a2d5a.dir/link.txt --verbose=1
+/usr/bin/cc  -w -DCHECK_FUNCTION_EXISTS=connect CMakeFiles/cmTC_a2d5a.dir/CheckFunctionExists.c.o -o cmTC_a2d5a  -lsocket -ldl 
+/usr/bin/ld: cannot find -lsocket
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_a2d5a.dir/build.make:99: cmTC_a2d5a] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_a2d5a/fast] Error 2
+
+
+
+Determining if the function recv exists in the network;dl failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_fb366/fast && /usr/bin/make  -f CMakeFiles/cmTC_fb366.dir/build.make CMakeFiles/cmTC_fb366.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fb366.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -w -DCHECK_FUNCTION_EXISTS=recv -std=gnu11 -o CMakeFiles/cmTC_fb366.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.20/Modules/CheckFunctionExists.c
+Linking C executable cmTC_fb366
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fb366.dir/link.txt --verbose=1
+/usr/bin/cc  -w -DCHECK_FUNCTION_EXISTS=recv CMakeFiles/cmTC_fb366.dir/CheckFunctionExists.c.o -o cmTC_fb366  -lnetwork -ldl 
+/usr/bin/ld: cannot find -lnetwork
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_fb366.dir/build.make:99: cmTC_fb366] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_fb366/fast] Error 2
+
+
+
+Determining if the RAND_status exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_abd84/fast && /usr/bin/make  -f CMakeFiles/cmTC_abd84.dir/build.make CMakeFiles/cmTC_abd84.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_abd84.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_abd84.dir/CheckSymbolExists.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: error: ‘RAND_status’ undeclared (first use in this function)
+    7 |   return ((int*)(&RAND_status))[argc];
+      |                   ^~~~~~~~~~~
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_abd84.dir/build.make:78: CMakeFiles/cmTC_abd84.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_abd84/fast] Error 2
+
+
+File /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef RAND_status
+  return ((int*)(&RAND_status))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the RAND_screen exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_f523d/fast && /usr/bin/make  -f CMakeFiles/cmTC_f523d.dir/build.make CMakeFiles/cmTC_f523d.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f523d.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_f523d.dir/CheckSymbolExists.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: error: ‘RAND_screen’ undeclared (first use in this function)
+    7 |   return ((int*)(&RAND_screen))[argc];
+      |                   ^~~~~~~~~~~
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_f523d.dir/build.make:78: CMakeFiles/cmTC_f523d.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_f523d/fast] Error 2
+
+
+File /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef RAND_screen
+  return ((int*)(&RAND_screen))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the RAND_egd exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_9c997/fast && /usr/bin/make  -f CMakeFiles/cmTC_9c997.dir/build.make CMakeFiles/cmTC_9c997.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9c997.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_9c997.dir/CheckSymbolExists.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: error: ‘RAND_egd’ undeclared (first use in this function)
+    7 |   return ((int*)(&RAND_egd))[argc];
+      |                   ^~~~~~~~
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_9c997.dir/build.make:78: CMakeFiles/cmTC_9c997.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_9c997/fast] Error 2
+
+
+File /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef RAND_egd
+  return ((int*)(&RAND_egd))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the function dlopen exists in the dl;/usr/lib/libssl.so;/usr/lib/libcrypto.so;cmnghttp2 failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_4a4ed/fast && /usr/bin/make  -f CMakeFiles/cmTC_4a4ed.dir/build.make CMakeFiles/cmTC_4a4ed.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4a4ed.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -w -DCHECK_FUNCTION_EXISTS=dlopen -std=gnu11 -o CMakeFiles/cmTC_4a4ed.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.20/Modules/CheckFunctionExists.c
+Linking C executable cmTC_4a4ed
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4a4ed.dir/link.txt --verbose=1
+/usr/bin/cc  -w -DCHECK_FUNCTION_EXISTS=dlopen CMakeFiles/cmTC_4a4ed.dir/CheckFunctionExists.c.o -o cmTC_4a4ed  -ldl /usr/lib/libssl.so /usr/lib/libcrypto.so -lcmnghttp2 
+/usr/bin/ld: cannot find -lcmnghttp2
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_4a4ed.dir/build.make:101: cmTC_4a4ed] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_4a4ed/fast] Error 2
+
+
+
+Determining if files stdio.h;inttypes.h;sys/filio.h exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_b2a14/fast && /usr/bin/make  -f CMakeFiles/cmTC_b2a14.dir/build.make CMakeFiles/cmTC_b2a14.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b2a14.dir/HAVE_SYS_FILIO_H.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_b2a14.dir/HAVE_SYS_FILIO_H.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_SYS_FILIO_H.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_SYS_FILIO_H.c:4:10: fatal error: sys/filio.h: No such file or directory
+    4 | #include <sys/filio.h>
+      |          ^~~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_b2a14.dir/build.make:78: CMakeFiles/cmTC_b2a14.dir/HAVE_SYS_FILIO_H.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_b2a14/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/filio.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/sockio.h exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_468c3/fast && /usr/bin/make  -f CMakeFiles/cmTC_468c3.dir/build.make CMakeFiles/cmTC_468c3.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_468c3.dir/HAVE_SYS_SOCKIO_H.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_468c3.dir/HAVE_SYS_SOCKIO_H.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_SYS_SOCKIO_H.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_SYS_SOCKIO_H.c:10:10: fatal error: sys/sockio.h: No such file or directory
+   10 | #include <sys/sockio.h>
+      |          ^~~~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_468c3.dir/build.make:78: CMakeFiles/cmTC_468c3.dir/HAVE_SYS_SOCKIO_H.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_468c3/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/sockio.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/utime.h exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_4337b/fast && /usr/bin/make  -f CMakeFiles/cmTC_4337b.dir/build.make CMakeFiles/cmTC_4337b.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4337b.dir/HAVE_SYS_UTIME_H.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_4337b.dir/HAVE_SYS_UTIME_H.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_SYS_UTIME_H.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_SYS_UTIME_H.c:15:10: fatal error: sys/utime.h: No such file or directory
+   15 | #include <sys/utime.h>
+      |          ^~~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_4337b.dir/build.make:78: CMakeFiles/cmTC_4337b.dir/HAVE_SYS_UTIME_H.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_4337b/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/utime.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;crypto.h exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_69737/fast && /usr/bin/make  -f CMakeFiles/cmTC_69737.dir/build.make CMakeFiles/cmTC_69737.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_69737.dir/HAVE_CRYPTO_H.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_69737.dir/HAVE_CRYPTO_H.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_CRYPTO_H.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_CRYPTO_H.c:20:10: fatal error: crypto.h: No such file or directory
+   20 | #include <crypto.h>
+      |          ^~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_69737.dir/build.make:78: CMakeFiles/cmTC_69737.dir/HAVE_CRYPTO_H.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_69737/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <crypto.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;idn2.h;ifaddrs.h;io.h exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_8891b/fast && /usr/bin/make  -f CMakeFiles/cmTC_8891b.dir/build.make CMakeFiles/cmTC_8891b.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8891b.dir/HAVE_IO_H.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_8891b.dir/HAVE_IO_H.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_IO_H.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_IO_H.c:25:10: fatal error: io.h: No such file or directory
+   25 | #include <io.h>
+      |          ^~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_8891b.dir/build.make:78: CMakeFiles/cmTC_8891b.dir/HAVE_IO_H.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_8891b/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+#include <ifaddrs.h>
+#include <io.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;idn2.h;ifaddrs.h;krb.h exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_b718b/fast && /usr/bin/make  -f CMakeFiles/cmTC_b718b.dir/build.make CMakeFiles/cmTC_b718b.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b718b.dir/HAVE_KRB_H.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_b718b.dir/HAVE_KRB_H.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_KRB_H.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_KRB_H.c:25:10: fatal error: krb.h: No such file or directory
+   25 | #include <krb.h>
+      |          ^~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_b718b.dir/build.make:78: CMakeFiles/cmTC_b718b.dir/HAVE_KRB_H.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_b718b/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+#include <ifaddrs.h>
+#include <krb.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;idn2.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;pem.h exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_d3a98/fast && /usr/bin/make  -f CMakeFiles/cmTC_d3a98.dir/build.make CMakeFiles/cmTC_d3a98.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d3a98.dir/HAVE_PEM_H.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_d3a98.dir/HAVE_PEM_H.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_PEM_H.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_PEM_H.c:31:10: fatal error: pem.h: No such file or directory
+   31 | #include <pem.h>
+      |          ^~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_d3a98.dir/build.make:78: CMakeFiles/cmTC_d3a98.dir/HAVE_PEM_H.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_d3a98/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <pem.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;idn2.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;poll.h;pwd.h;rsa.h exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_d86c8/fast && /usr/bin/make  -f CMakeFiles/cmTC_d86c8.dir/build.make CMakeFiles/cmTC_d86c8.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d86c8.dir/HAVE_RSA_H.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_d86c8.dir/HAVE_RSA_H.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_RSA_H.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_RSA_H.c:33:10: fatal error: rsa.h: No such file or directory
+   33 | #include <rsa.h>
+      |          ^~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_d86c8.dir/build.make:78: CMakeFiles/cmTC_d86c8.dir/HAVE_RSA_H.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_d86c8/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <rsa.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;idn2.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;poll.h;pwd.h;setjmp.h;sgtty.h;signal.h;ssl.h exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_4b055/fast && /usr/bin/make  -f CMakeFiles/cmTC_4b055.dir/build.make CMakeFiles/cmTC_4b055.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4b055.dir/HAVE_SSL_H.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_4b055.dir/HAVE_SSL_H.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_SSL_H.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_SSL_H.c:36:10: fatal error: ssl.h: No such file or directory
+   36 | #include <ssl.h>
+      |          ^~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_4b055.dir/build.make:78: CMakeFiles/cmTC_4b055.dir/HAVE_SSL_H.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_4b055/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <ssl.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;idn2.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;poll.h;pwd.h;setjmp.h;sgtty.h;signal.h;stdbool.h;stdint.h;stdio.h;stdlib.h;string.h;strings.h;stropts.h exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_4d045/fast && /usr/bin/make  -f CMakeFiles/cmTC_4d045.dir/build.make CMakeFiles/cmTC_4d045.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4d045.dir/HAVE_STROPTS_H.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_4d045.dir/HAVE_STROPTS_H.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_STROPTS_H.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_STROPTS_H.c:42:10: fatal error: stropts.h: No such file or directory
+   42 | #include <stropts.h>
+      |          ^~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_4d045.dir/build.make:78: CMakeFiles/cmTC_4d045.dir/HAVE_STROPTS_H.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_4d045/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <stropts.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;idn2.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;poll.h;pwd.h;setjmp.h;sgtty.h;signal.h;stdbool.h;stdint.h;stdio.h;stdlib.h;string.h;strings.h;termio.h;termios.h;time.h;unistd.h;utime.h;x509.h exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_63872/fast && /usr/bin/make  -f CMakeFiles/cmTC_63872.dir/build.make CMakeFiles/cmTC_63872.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_63872.dir/HAVE_X509_H.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_63872.dir/HAVE_X509_H.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_X509_H.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_X509_H.c:47:10: fatal error: x509.h: No such file or directory
+   47 | #include <x509.h>
+      |          ^~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_63872.dir/build.make:78: CMakeFiles/cmTC_63872.dir/HAVE_X509_H.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_63872/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <x509.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;idn2.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;poll.h;pwd.h;setjmp.h;sgtty.h;signal.h;stdbool.h;stdint.h;stdio.h;stdlib.h;string.h;strings.h;termio.h;termios.h;time.h;unistd.h;utime.h;process.h exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_ee1e4/fast && /usr/bin/make  -f CMakeFiles/cmTC_ee1e4.dir/build.make CMakeFiles/cmTC_ee1e4.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ee1e4.dir/HAVE_PROCESS_H.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_ee1e4.dir/HAVE_PROCESS_H.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_PROCESS_H.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_PROCESS_H.c:47:10: fatal error: process.h: No such file or directory
+   47 | #include <process.h>
+      |          ^~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_ee1e4.dir/build.make:78: CMakeFiles/cmTC_ee1e4.dir/HAVE_PROCESS_H.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_ee1e4/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <process.h>
+
+
+int main(void){return 0;}
+
+Determining if files stdio.h;inttypes.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/resource.h;sys/select.h;sys/socket.h;sys/stat.h;sys/time.h;sys/types.h;sys/uio.h;sys/un.h;sys/xattr.h;alloca.h;arpa/inet.h;arpa/tftp.h;assert.h;err.h;errno.h;fcntl.h;idn2.h;ifaddrs.h;libgen.h;locale.h;net/if.h;netdb.h;netinet/in.h;netinet/tcp.h;poll.h;pwd.h;setjmp.h;sgtty.h;signal.h;stdbool.h;stdint.h;stdio.h;stdlib.h;string.h;strings.h;termio.h;termios.h;time.h;unistd.h;utime.h;stddef.h;dlfcn.h;malloc.h;memory.h;netinet/if_ether.h;stdint.h;sockio.h exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_113cb/fast && /usr/bin/make  -f CMakeFiles/cmTC_113cb.dir/build.make CMakeFiles/cmTC_113cb.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_113cb.dir/HAVE_SOCKIO_H.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_113cb.dir/HAVE_SOCKIO_H.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_SOCKIO_H.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_SOCKIO_H.c:53:10: fatal error: sockio.h: No such file or directory
+   53 | #include <sockio.h>
+      |          ^~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_113cb.dir/build.make:78: CMakeFiles/cmTC_113cb.dir/HAVE_SOCKIO_H.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_113cb/fast] Error 2
+
+
+Source:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sockio.h>
+
+
+int main(void){return 0;}
+
+Determining if the stricmp exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_55334/fast && /usr/bin/make  -f CMakeFiles/cmTC_55334.dir/build.make CMakeFiles/cmTC_55334.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_55334.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_55334.dir/CheckSymbolExists.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:59:19: error: ‘stricmp’ undeclared (first use in this function); did you mean ‘strncmp’?
+   59 |   return ((int*)(&stricmp))[argc];
+      |                   ^~~~~~~
+      |                   strncmp
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:59:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_55334.dir/build.make:78: CMakeFiles/cmTC_55334.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_55334/fast] Error 2
+
+
+File /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef stricmp
+  return ((int*)(&stricmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strcmpi exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_7b1c4/fast && /usr/bin/make  -f CMakeFiles/cmTC_7b1c4.dir/build.make CMakeFiles/cmTC_7b1c4.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7b1c4.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_7b1c4.dir/CheckSymbolExists.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:59:19: error: ‘strcmpi’ undeclared (first use in this function); did you mean ‘strcmp’?
+   59 |   return ((int*)(&strcmpi))[argc];
+      |                   ^~~~~~~
+      |                   strcmp
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:59:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_7b1c4.dir/build.make:78: CMakeFiles/cmTC_7b1c4.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_7b1c4/fast] Error 2
+
+
+File /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strcmpi
+  return ((int*)(&strcmpi))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strncmpi exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_eeb50/fast && /usr/bin/make  -f CMakeFiles/cmTC_eeb50.dir/build.make CMakeFiles/cmTC_eeb50.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_eeb50.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_eeb50.dir/CheckSymbolExists.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:59:19: error: ‘strncmpi’ undeclared (first use in this function); did you mean ‘strncmp’?
+   59 |   return ((int*)(&strncmpi))[argc];
+      |                   ^~~~~~~~
+      |                   strncmp
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:59:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_eeb50.dir/build.make:78: CMakeFiles/cmTC_eeb50.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_eeb50/fast] Error 2
+
+
+File /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strncmpi
+  return ((int*)(&strncmpi))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the inet_ntoa_r exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_1ff40/fast && /usr/bin/make  -f CMakeFiles/cmTC_1ff40.dir/build.make CMakeFiles/cmTC_1ff40.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1ff40.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_1ff40.dir/CheckSymbolExists.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:59:19: error: ‘inet_ntoa_r’ undeclared (first use in this function); did you mean ‘inet_ntoa’?
+   59 |   return ((int*)(&inet_ntoa_r))[argc];
+      |                   ^~~~~~~~~~~
+      |                   inet_ntoa
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:59:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_1ff40.dir/build.make:78: CMakeFiles/cmTC_1ff40.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_1ff40/fast] Error 2
+
+
+File /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef inet_ntoa_r
+  return ((int*)(&inet_ntoa_r))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the closesocket exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_2a13b/fast && /usr/bin/make  -f CMakeFiles/cmTC_2a13b.dir/build.make CMakeFiles/cmTC_2a13b.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2a13b.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_2a13b.dir/CheckSymbolExists.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:59:19: error: ‘closesocket’ undeclared (first use in this function)
+   59 |   return ((int*)(&closesocket))[argc];
+      |                   ^~~~~~~~~~~
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:59:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_2a13b.dir/build.make:78: CMakeFiles/cmTC_2a13b.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_2a13b/fast] Error 2
+
+
+File /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef closesocket
+  return ((int*)(&closesocket))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the getpass_r exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_17099/fast && /usr/bin/make  -f CMakeFiles/cmTC_17099.dir/build.make CMakeFiles/cmTC_17099.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_17099.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_17099.dir/CheckSymbolExists.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:59:19: error: ‘getpass_r’ undeclared (first use in this function); did you mean ‘getpass’?
+   59 |   return ((int*)(&getpass_r))[argc];
+      |                   ^~~~~~~~~
+      |                   getpass
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:59:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_17099.dir/build.make:78: CMakeFiles/cmTC_17099.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_17099/fast] Error 2
+
+
+File /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef getpass_r
+  return ((int*)(&getpass_r))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strlcat exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_69b57/fast && /usr/bin/make  -f CMakeFiles/cmTC_69b57.dir/build.make CMakeFiles/cmTC_69b57.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_69b57.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_69b57.dir/CheckSymbolExists.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:59:19: error: ‘strlcat’ undeclared (first use in this function); did you mean ‘strncat’?
+   59 |   return ((int*)(&strlcat))[argc];
+      |                   ^~~~~~~
+      |                   strncat
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:59:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_69b57.dir/build.make:78: CMakeFiles/cmTC_69b57.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_69b57/fast] Error 2
+
+
+File /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strlcat
+  return ((int*)(&strlcat))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the _strtoi64 exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_71ed4/fast && /usr/bin/make  -f CMakeFiles/cmTC_71ed4.dir/build.make CMakeFiles/cmTC_71ed4.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_71ed4.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_71ed4.dir/CheckSymbolExists.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:59:19: error: ‘_strtoi64’ undeclared (first use in this function)
+   59 |   return ((int*)(&_strtoi64))[argc];
+      |                   ^~~~~~~~~
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:59:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_71ed4.dir/build.make:78: CMakeFiles/cmTC_71ed4.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_71ed4/fast] Error 2
+
+
+File /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _strtoi64
+  return ((int*)(&_strtoi64))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the setmode exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_ed204/fast && /usr/bin/make  -f CMakeFiles/cmTC_ed204.dir/build.make CMakeFiles/cmTC_ed204.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ed204.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_ed204.dir/CheckSymbolExists.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:59:19: error: ‘setmode’ undeclared (first use in this function)
+   59 |   return ((int*)(&setmode))[argc];
+      |                   ^~~~~~~
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:59:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_ed204.dir/build.make:78: CMakeFiles/cmTC_ed204.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_ed204/fast] Error 2
+
+
+File /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <inttypes.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/resource.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <sys/un.h>
+#include <sys/xattr.h>
+#include <alloca.h>
+#include <arpa/inet.h>
+#include <arpa/tftp.h>
+#include <assert.h>
+#include <err.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <idn2.h>
+#include <ifaddrs.h>
+#include <libgen.h>
+#include <locale.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <poll.h>
+#include <pwd.h>
+#include <setjmp.h>
+#include <sgtty.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <termio.h>
+#include <termios.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <stddef.h>
+#include <dlfcn.h>
+#include <malloc.h>
+#include <memory.h>
+#include <netinet/if_ether.h>
+#include <stdint.h>
+#include <sys/utsname.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef setmode
+  return ((int*)(&setmode))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the function mach_absolute_time exists failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_8bfd9/fast && /usr/bin/make  -f CMakeFiles/cmTC_8bfd9.dir/build.make CMakeFiles/cmTC_8bfd9.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8bfd9.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -w -DCHECK_FUNCTION_EXISTS=mach_absolute_time -std=gnu11 -o CMakeFiles/cmTC_8bfd9.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.20/Modules/CheckFunctionExists.c
+Linking C executable cmTC_8bfd9
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8bfd9.dir/link.txt --verbose=1
+/usr/bin/cc  -w -DCHECK_FUNCTION_EXISTS=mach_absolute_time CMakeFiles/cmTC_8bfd9.dir/CheckFunctionExists.c.o -o cmTC_8bfd9 
+/usr/bin/ld: CMakeFiles/cmTC_8bfd9.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `mach_absolute_time'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_8bfd9.dir/build.make:99: cmTC_8bfd9] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_8bfd9/fast] Error 2
+
+
+
+Performing Curl Test HAVE_FSETXATTR_6 failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_e83f6/fast && /usr/bin/make  -f CMakeFiles/cmTC_e83f6.dir/build.make CMakeFiles/cmTC_e83f6.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e83f6.dir/CurlTests.c.o
+/usr/bin/cc   -w -DHAVE_FSETXATTR_6  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_e83f6.dir/CurlTests.c.o -c /home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:544:3: error: too many arguments to function ‘fsetxattr’
+  544 |   fsetxattr(0, 0, 0, 0, 0, 0);
+      |   ^~~~~~~~~
+In file included from /home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:541:
+/usr/include/sys/xattr.h:54:12: note: declared here
+   54 | extern int fsetxattr (int __fd, const char *__name, const void *__value,
+      |            ^~~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_e83f6.dir/build.make:78: CMakeFiles/cmTC_e83f6.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_e83f6/fast] Error 2
+
+
+Performing Curl Test HAVE_IOCTLSOCKET failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_9541c/fast && /usr/bin/make  -f CMakeFiles/cmTC_9541c.dir/build.make CMakeFiles/cmTC_9541c.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9541c.dir/CurlTests.c.o
+/usr/bin/cc   -w -DHAVE_IOCTLSOCKET  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_9541c.dir/CurlTests.c.o -c /home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:326:44: error: ‘FIONBIO’ undeclared (first use in this function)
+  326 |  unsigned long flags = ioctlsocket(socket, FIONBIO, &flags);
+      |                                            ^~~~~~~
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:326:44: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_9541c.dir/build.make:78: CMakeFiles/cmTC_9541c.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_9541c/fast] Error 2
+
+
+Performing Curl Test HAVE_IOCTLSOCKET_CAMEL failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_a9240/fast && /usr/bin/make  -f CMakeFiles/cmTC_a9240.dir/build.make CMakeFiles/cmTC_a9240.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a9240.dir/CurlTests.c.o
+/usr/bin/cc   -w -DHAVE_IOCTLSOCKET_CAMEL  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_a9240.dir/CurlTests.c.o -c /home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c
+Linking C executable cmTC_a9240
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a9240.dir/link.txt --verbose=1
+/usr/bin/cc  -w -DHAVE_IOCTLSOCKET_CAMEL  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H CMakeFiles/cmTC_a9240.dir/CurlTests.c.o -o cmTC_a9240 
+/usr/bin/ld: CMakeFiles/cmTC_a9240.dir/CurlTests.c.o: in function `main':
+CurlTests.c:(.text+0x19): undefined reference to `IoctlSocket'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_a9240.dir/build.make:99: cmTC_a9240] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_a9240/fast] Error 2
+
+
+Performing Curl Test HAVE_IOCTLSOCKET_CAMEL_FIONBIO failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_f70e9/fast && /usr/bin/make  -f CMakeFiles/cmTC_f70e9.dir/build.make CMakeFiles/cmTC_f70e9.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f70e9.dir/CurlTests.c.o
+/usr/bin/cc   -w -DHAVE_IOCTLSOCKET_CAMEL_FIONBIO  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_f70e9.dir/CurlTests.c.o -c /home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:382:32: error: ‘FIONBIO’ undeclared (first use in this function)
+  382 |         if(0 != ioctlsocket(0, FIONBIO, &flags))
+      |                                ^~~~~~~
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:382:32: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_f70e9.dir/build.make:78: CMakeFiles/cmTC_f70e9.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_f70e9/fast] Error 2
+
+
+Performing Curl Test HAVE_IOCTLSOCKET_FIONBIO failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_3c8eb/fast && /usr/bin/make  -f CMakeFiles/cmTC_3c8eb.dir/build.make CMakeFiles/cmTC_3c8eb.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3c8eb.dir/CurlTests.c.o
+/usr/bin/cc   -w -DHAVE_IOCTLSOCKET_FIONBIO  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_3c8eb.dir/CurlTests.c.o -c /home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:409:32: error: ‘FIONBIO’ undeclared (first use in this function)
+  409 |         if(0 != ioctlsocket(0, FIONBIO, &flags))
+      |                                ^~~~~~~
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:409:32: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_3c8eb.dir/build.make:78: CMakeFiles/cmTC_3c8eb.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_3c8eb/fast] Error 2
+
+
+Performing Curl Test HAVE_SETSOCKOPT_SO_NONBLOCK failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_371af/fast && /usr/bin/make  -f CMakeFiles/cmTC_371af.dir/build.make CMakeFiles/cmTC_371af.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_371af.dir/CurlTests.c.o
+/usr/bin/cc   -w -DHAVE_SETSOCKOPT_SO_NONBLOCK  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_371af.dir/CurlTests.c.o -c /home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:505:43: error: ‘SO_NONBLOCK’ undeclared (first use in this function); did you mean ‘SOCK_NONBLOCK’?
+  505 |         if(0 != setsockopt(0, SOL_SOCKET, SO_NONBLOCK, 0, 0))
+      |                                           ^~~~~~~~~~~
+      |                                           SOCK_NONBLOCK
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:505:43: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_371af.dir/build.make:78: CMakeFiles/cmTC_371af.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_371af/fast] Error 2
+
+
+Performing Curl Test HAVE_O_NONBLOCK failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_bd571/fast && /usr/bin/make  -f CMakeFiles/cmTC_bd571.dir/build.make CMakeFiles/cmTC_bd571.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bd571.dir/CurlTests.c.o
+/usr/bin/cc   -w -DHAVE_O_NONBLOCK  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_bd571.dir/CurlTests.c.o -c /home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c
+Linking C executable cmTC_bd571
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bd571.dir/link.txt --verbose=1
+/usr/bin/cc  -w -DHAVE_O_NONBLOCK  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H CMakeFiles/cmTC_bd571.dir/CurlTests.c.o -o cmTC_bd571 
+/usr/bin/ld: /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/../../../../lib/Scrt1.o: in function `_start':
+(.text+0x24): undefined reference to `main'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_bd571.dir/build.make:99: cmTC_bd571] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_bd571/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYADDR_R_5 failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_499bc/fast && /usr/bin/make  -f CMakeFiles/cmTC_499bc.dir/build.make CMakeFiles/cmTC_499bc.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_499bc.dir/CurlTests.c.o
+/usr/bin/cc   -w -DHAVE_GETHOSTBYADDR_R_5  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_499bc.dir/CurlTests.c.o -c /home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:106:23: error: storage size of ‘hdata’ isn’t known
+  106 |   struct hostent_data hdata;
+      |                       ^~~~~
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:127:8: error: too few arguments to function ‘gethostbyaddr_r’
+  127 |   rc = gethostbyaddr_r(address, length, type, &h, &hdata);
+      |        ^~~~~~~~~~~~~~~
+In file included from /home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:93:
+/usr/include/netdb.h:170:12: note: declared here
+  170 | extern int gethostbyaddr_r (const void *__restrict __addr, __socklen_t __len,
+      |            ^~~~~~~~~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_499bc.dir/build.make:78: CMakeFiles/cmTC_499bc.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_499bc/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYADDR_R_7 failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_f24fd/fast && /usr/bin/make  -f CMakeFiles/cmTC_f24fd.dir/build.make CMakeFiles/cmTC_f24fd.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f24fd.dir/CurlTests.c.o
+/usr/bin/cc   -w -DHAVE_GETHOSTBYADDR_R_7  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_f24fd.dir/CurlTests.c.o -c /home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:131:8: error: too few arguments to function ‘gethostbyaddr_r’
+  131 |   hp = gethostbyaddr_r(address, length, type, &h, buffer, 8192, &h_errnop);
+      |        ^~~~~~~~~~~~~~~
+In file included from /home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:93:
+/usr/include/netdb.h:170:12: note: declared here
+  170 | extern int gethostbyaddr_r (const void *__restrict __addr, __socklen_t __len,
+      |            ^~~~~~~~~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_f24fd.dir/build.make:78: CMakeFiles/cmTC_f24fd.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_f24fd/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYADDR_R_5_REENTRANT failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_8ca37/fast && /usr/bin/make  -f CMakeFiles/cmTC_8ca37.dir/build.make CMakeFiles/cmTC_8ca37.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8ca37.dir/CurlTests.c.o
+/usr/bin/cc   -w -DHAVE_GETHOSTBYADDR_R_5_REENTRANT  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_8ca37.dir/CurlTests.c.o -c /home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:106:23: error: storage size of ‘hdata’ isn’t known
+  106 |   struct hostent_data hdata;
+      |                       ^~~~~
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:127:8: error: too few arguments to function ‘gethostbyaddr_r’
+  127 |   rc = gethostbyaddr_r(address, length, type, &h, &hdata);
+      |        ^~~~~~~~~~~~~~~
+In file included from /home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:93:
+/usr/include/netdb.h:170:12: note: declared here
+  170 | extern int gethostbyaddr_r (const void *__restrict __addr, __socklen_t __len,
+      |            ^~~~~~~~~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_8ca37.dir/build.make:78: CMakeFiles/cmTC_8ca37.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_8ca37/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYADDR_R_7_REENTRANT failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_55f80/fast && /usr/bin/make  -f CMakeFiles/cmTC_55f80.dir/build.make CMakeFiles/cmTC_55f80.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_55f80.dir/CurlTests.c.o
+/usr/bin/cc   -w -DHAVE_GETHOSTBYADDR_R_7_REENTRANT  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_55f80.dir/CurlTests.c.o -c /home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:131:8: error: too few arguments to function ‘gethostbyaddr_r’
+  131 |   hp = gethostbyaddr_r(address, length, type, &h, buffer, 8192, &h_errnop);
+      |        ^~~~~~~~~~~~~~~
+In file included from /home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:93:
+/usr/include/netdb.h:170:12: note: declared here
+  170 | extern int gethostbyaddr_r (const void *__restrict __addr, __socklen_t __len,
+      |            ^~~~~~~~~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_55f80.dir/build.make:78: CMakeFiles/cmTC_55f80.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_55f80/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYNAME_R_3 failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_7691c/fast && /usr/bin/make  -f CMakeFiles/cmTC_7691c.dir/build.make CMakeFiles/cmTC_7691c.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7691c.dir/CurlTests.c.o
+/usr/bin/cc   -w -DHAVE_GETHOSTBYNAME_R_3  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_7691c.dir/CurlTests.c.o -c /home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:106:23: error: storage size of ‘hdata’ isn’t known
+  106 |   struct hostent_data hdata;
+      |                       ^~~~~
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:141:8: error: too few arguments to function ‘gethostbyname_r’
+  141 |   rc = gethostbyname_r(address, &h, &hdata);
+      |        ^~~~~~~~~~~~~~~
+In file included from /home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:93:
+/usr/include/netdb.h:177:12: note: declared here
+  177 | extern int gethostbyname_r (const char *__restrict __name,
+      |            ^~~~~~~~~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_7691c.dir/build.make:78: CMakeFiles/cmTC_7691c.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_7691c/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYNAME_R_5 failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_825e9/fast && /usr/bin/make  -f CMakeFiles/cmTC_825e9.dir/build.make CMakeFiles/cmTC_825e9.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_825e9.dir/CurlTests.c.o
+/usr/bin/cc   -w -DHAVE_GETHOSTBYNAME_R_5  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_825e9.dir/CurlTests.c.o -c /home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:144:8: error: too few arguments to function ‘gethostbyname_r’
+  144 |   rc = gethostbyname_r(address, &h, buffer, 8192, &h_errnop);
+      |        ^~~~~~~~~~~~~~~
+In file included from /home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:93:
+/usr/include/netdb.h:177:12: note: declared here
+  177 | extern int gethostbyname_r (const char *__restrict __name,
+      |            ^~~~~~~~~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_825e9.dir/build.make:78: CMakeFiles/cmTC_825e9.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_825e9/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYNAME_R_3_REENTRANT failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_ba026/fast && /usr/bin/make  -f CMakeFiles/cmTC_ba026.dir/build.make CMakeFiles/cmTC_ba026.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ba026.dir/CurlTests.c.o
+/usr/bin/cc   -w -DHAVE_GETHOSTBYNAME_R_3_REENTRANT  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_ba026.dir/CurlTests.c.o -c /home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:106:23: error: storage size of ‘hdata’ isn’t known
+  106 |   struct hostent_data hdata;
+      |                       ^~~~~
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:141:8: error: too few arguments to function ‘gethostbyname_r’
+  141 |   rc = gethostbyname_r(address, &h, &hdata);
+      |        ^~~~~~~~~~~~~~~
+In file included from /home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:93:
+/usr/include/netdb.h:177:12: note: declared here
+  177 | extern int gethostbyname_r (const char *__restrict __name,
+      |            ^~~~~~~~~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_ba026.dir/build.make:78: CMakeFiles/cmTC_ba026.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_ba026/fast] Error 2
+
+
+Performing Curl Test HAVE_GETHOSTBYNAME_R_5_REENTRANT failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_a5841/fast && /usr/bin/make  -f CMakeFiles/cmTC_a5841.dir/build.make CMakeFiles/cmTC_a5841.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a5841.dir/CurlTests.c.o
+/usr/bin/cc   -w -DHAVE_GETHOSTBYNAME_R_5_REENTRANT  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_a5841.dir/CurlTests.c.o -c /home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:144:8: error: too few arguments to function ‘gethostbyname_r’
+  144 |   rc = gethostbyname_r(address, &h, buffer, 8192, &h_errnop);
+      |        ^~~~~~~~~~~~~~~
+In file included from /home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:93:
+/usr/include/netdb.h:177:12: note: declared here
+  177 | extern int gethostbyname_r (const char *__restrict __name,
+      |            ^~~~~~~~~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_a5841.dir/build.make:78: CMakeFiles/cmTC_a5841.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_a5841/fast] Error 2
+
+
+Performing Curl Test HAVE_INET_NTOA_R_DECL failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_2999d/fast && /usr/bin/make  -f CMakeFiles/cmTC_2999d.dir/build.make CMakeFiles/cmTC_2999d.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2999d.dir/CurlTests.c.o
+/usr/bin/cc   -w -DHAVE_INET_NTOA_R_DECL  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_2999d.dir/CurlTests.c.o -c /home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:244:21: error: ‘inet_ntoa_r’ undeclared (first use in this function); did you mean ‘inet_ntoa’?
+  244 |   func = (func_type)inet_ntoa_r;
+      |                     ^~~~~~~~~~~
+      |                     inet_ntoa
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:244:21: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_2999d.dir/build.make:78: CMakeFiles/cmTC_2999d.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_2999d/fast] Error 2
+
+
+Performing Curl Test HAVE_INET_NTOA_R_DECL_REENTRANT failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_3cccc/fast && /usr/bin/make  -f CMakeFiles/cmTC_3cccc.dir/build.make CMakeFiles/cmTC_3cccc.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3cccc.dir/CurlTests.c.o
+/usr/bin/cc   -w -DHAVE_INET_NTOA_R_DECL_REENTRANT  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_3cccc.dir/CurlTests.c.o -c /home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:260:22: error: ‘inet_ntoa_r’ undeclared (first use in this function); did you mean ‘inet_ntoa’?
+  260 |   func = (func_type)&inet_ntoa_r;
+      |                      ^~~~~~~~~~~
+      |                      inet_ntoa
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:260:22: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_3cccc.dir/build.make:78: CMakeFiles/cmTC_3cccc.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_3cccc/fast] Error 2
+
+
+Performing Curl Test HAVE_GLIBC_STRERROR_R failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_3e5b5/fast && /usr/bin/make  -f CMakeFiles/cmTC_3e5b5.dir/build.make CMakeFiles/cmTC_3e5b5.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3e5b5.dir/CurlTests.c.o
+/usr/bin/cc   -w -DHAVE_GLIBC_STRERROR_R  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_3e5b5.dir/CurlTests.c.o -c /home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:521:51: error: subscripted value is neither array nor pointer nor vector
+  521 |   check(strerror_r(EACCES, buffer, sizeof(buffer))[0]);
+      |                                                   ^
+make[1]: *** [CMakeFiles/cmTC_3e5b5.dir/build.make:78: CMakeFiles/cmTC_3e5b5.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_3e5b5/fast] Error 2
+
+
+Performing Curl Test HAVE_BUILTIN_AVAILABLE failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_46d57/fast && /usr/bin/make  -f CMakeFiles/cmTC_46d57.dir/build.make CMakeFiles/cmTC_46d57.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_46d57.dir/CurlTests.c.o
+/usr/bin/cc   -w -DHAVE_BUILTIN_AVAILABLE  -DHAVE_STDIO_H -DHAVE_INTTYPES_H -DHAVE_SYS_IOCTL_H -DHAVE_SYS_PARAM_H -DHAVE_SYS_POLL_H -DHAVE_SYS_RESOURCE_H -DHAVE_SYS_SELECT_H -DHAVE_SYS_SOCKET_H -DHAVE_SYS_STAT_H -DHAVE_SYS_TIME_H -DHAVE_SYS_TYPES_H -DHAVE_SYS_UIO_H -DHAVE_SYS_UN_H -DHAVE_SYS_XATTR_H -DHAVE_ALLOCA_H -DHAVE_ARPA_INET_H -DHAVE_ARPA_TFTP_H -DHAVE_ASSERT_H -DHAVE_ERR_H -DHAVE_ERRNO_H -DHAVE_FCNTL_H -DHAVE_IDN2_H -DHAVE_IFADDRS_H -DHAVE_LIBGEN_H -DHAVE_LOCALE_H -DHAVE_NET_IF_H -DHAVE_NETDB_H -DHAVE_NETINET_IN_H -DHAVE_NETINET_TCP_H -DHAVE_POLL_H -DHAVE_PWD_H -DHAVE_SETJMP_H -DHAVE_SGTTY_H -DHAVE_SIGNAL_H -DHAVE_STDBOOL_H -DHAVE_STDINT_H -DHAVE_STDIO_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DHAVE_STRINGS_H -DHAVE_TERMIO_H -DHAVE_TERMIOS_H -DHAVE_TIME_H -DHAVE_UNISTD_H -DHAVE_UTIME_H -DHAVE_STDDEF_H -DHAVE_DLFCN_H -DHAVE_MALLOC_H -DHAVE_MEMORY_H -DHAVE_NETINET_IF_ETHER_H -DHAVE_STDINT_H -DHAVE_SYS_UTSNAME_H -std=gnu11 -o CMakeFiles/cmTC_46d57.dir/CurlTests.c.o -c /home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c: In function ‘main’:
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:568:26: error: ‘macOS’ undeclared (first use in this function)
+  568 |   if(__builtin_available(macOS 10.12, *)) {}
+      |                          ^~~~~
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:568:26: note: each undeclared identifier is reported only once for each function it appears in
+/home/eli/documents/cmake/Utilities/cmcurl/CMake/CurlTests.c:568:31: error: expected ‘)’ before numeric constant
+  568 |   if(__builtin_available(macOS 10.12, *)) {}
+      |                               ^~~~~~
+      |                               )
+make[1]: *** [CMakeFiles/cmTC_46d57.dir/build.make:78: CMakeFiles/cmTC_46d57.dir/CurlTests.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_46d57/fast] Error 2
+
+
+Determining if the arc4random_buf exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_225ba/fast && /usr/bin/make  -f CMakeFiles/cmTC_225ba.dir/build.make CMakeFiles/cmTC_225ba.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_225ba.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_225ba.dir/CheckSymbolExists.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘arc4random_buf’ undeclared (first use in this function)
+    8 |   return ((int*)(&arc4random_buf))[argc];
+      |                   ^~~~~~~~~~~~~~
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_225ba.dir/build.make:78: CMakeFiles/cmTC_225ba.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_225ba/fast] Error 2
+
+
+File /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef arc4random_buf
+  return ((int*)(&arc4random_buf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the arc4random exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_6bed9/fast && /usr/bin/make  -f CMakeFiles/cmTC_6bed9.dir/build.make CMakeFiles/cmTC_6bed9.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6bed9.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_6bed9.dir/CheckSymbolExists.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘arc4random’ undeclared (first use in this function); did you mean ‘srandom’?
+    8 |   return ((int*)(&arc4random))[argc];
+      |                   ^~~~~~~~~~
+      |                   srandom
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_6bed9.dir/build.make:78: CMakeFiles/cmTC_6bed9.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_6bed9/fast] Error 2
+
+
+File /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef arc4random
+  return ((int*)(&arc4random))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the include file sys/sysctl.h exists failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_93f71/fast && /usr/bin/make  -f CMakeFiles/cmTC_93f71.dir/build.make CMakeFiles/cmTC_93f71.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_93f71.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -std=gnu11 -o CMakeFiles/cmTC_93f71.dir/CheckIncludeFile.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: sys/sysctl.h: No such file or directory
+    1 | #include <sys/sysctl.h>
+      |          ^~~~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_93f71.dir/build.make:78: CMakeFiles/cmTC_93f71.dir/CheckIncludeFile.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_93f71/fast] Error 2
+
+
+
+Determining if files sys/types.h;ctype.h;copyfile.h exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_7e9f2/fast && /usr/bin/make  -f CMakeFiles/cmTC_7e9f2.dir/build.make CMakeFiles/cmTC_7e9f2.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7e9f2.dir/HAVE_COPYFILE_H.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_7e9f2.dir/HAVE_COPYFILE_H.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_COPYFILE_H.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_COPYFILE_H.c:4:10: fatal error: copyfile.h: No such file or directory
+    4 | #include <copyfile.h>
+      |          ^~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_7e9f2.dir/build.make:78: CMakeFiles/cmTC_7e9f2.dir/HAVE_COPYFILE_H.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_7e9f2/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <copyfile.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;direct.h exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_0ac9a/fast && /usr/bin/make  -f CMakeFiles/cmTC_0ac9a.dir/build.make CMakeFiles/cmTC_0ac9a.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0ac9a.dir/HAVE_DIRECT_H.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_0ac9a.dir/HAVE_DIRECT_H.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_DIRECT_H.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_DIRECT_H.c:4:10: fatal error: direct.h: No such file or directory
+    4 | #include <direct.h>
+      |          ^~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_0ac9a.dir/build.make:78: CMakeFiles/cmTC_0ac9a.dir/HAVE_DIRECT_H.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_0ac9a/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <direct.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;ext2fs/ext2_fs.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;membership.h exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_6d9eb/fast && /usr/bin/make  -f CMakeFiles/cmTC_6d9eb.dir/build.make CMakeFiles/cmTC_6d9eb.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6d9eb.dir/HAVE_MEMBERSHIP_H.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_6d9eb.dir/HAVE_MEMBERSHIP_H.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_MEMBERSHIP_H.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_MEMBERSHIP_H.c:16:10: fatal error: membership.h: No such file or directory
+   16 | #include <membership.h>
+      |          ^~~~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_6d9eb.dir/build.make:78: CMakeFiles/cmTC_6d9eb.dir/HAVE_MEMBERSHIP_H.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_6d9eb/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <ext2fs/ext2_fs.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <membership.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;ext2fs/ext2_fs.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;readpassphrase.h exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_54ac1/fast && /usr/bin/make  -f CMakeFiles/cmTC_54ac1.dir/build.make CMakeFiles/cmTC_54ac1.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_54ac1.dir/HAVE_READPASSPHRASE_H.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_54ac1.dir/HAVE_READPASSPHRASE_H.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_READPASSPHRASE_H.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_READPASSPHRASE_H.c:21:10: fatal error: readpassphrase.h: No such file or directory
+   21 | #include <readpassphrase.h>
+      |          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_54ac1.dir/build.make:78: CMakeFiles/cmTC_54ac1.dir/HAVE_READPASSPHRASE_H.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_54ac1/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <ext2fs/ext2_fs.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <readpassphrase.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;ext2fs/ext2_fs.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/acl.h;sys/cdefs.h;sys/extattr.h exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_a2a8d/fast && /usr/bin/make  -f CMakeFiles/cmTC_a2a8d.dir/build.make CMakeFiles/cmTC_a2a8d.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a2a8d.dir/HAVE_SYS_EXTATTR_H.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_a2a8d.dir/HAVE_SYS_EXTATTR_H.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_SYS_EXTATTR_H.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_SYS_EXTATTR_H.c:30:10: fatal error: sys/extattr.h: No such file or directory
+   30 | #include <sys/extattr.h>
+      |          ^~~~~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_a2a8d.dir/build.make:78: CMakeFiles/cmTC_a2a8d.dir/HAVE_SYS_EXTATTR_H.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_a2a8d/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <ext2fs/ext2_fs.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/acl.h>
+#include <sys/cdefs.h>
+#include <sys/extattr.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;ext2fs/ext2_fs.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/acl.h;sys/cdefs.h;sys/ioctl.h;sys/mkdev.h exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_88f36/fast && /usr/bin/make  -f CMakeFiles/cmTC_88f36.dir/build.make CMakeFiles/cmTC_88f36.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_88f36.dir/HAVE_SYS_MKDEV_H.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_88f36.dir/HAVE_SYS_MKDEV_H.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_SYS_MKDEV_H.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_SYS_MKDEV_H.c:31:10: fatal error: sys/mkdev.h: No such file or directory
+   31 | #include <sys/mkdev.h>
+      |          ^~~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_88f36.dir/build.make:78: CMakeFiles/cmTC_88f36.dir/HAVE_SYS_MKDEV_H.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_88f36/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <ext2fs/ext2_fs.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/acl.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/mkdev.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;ext2fs/ext2_fs.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/acl.h;sys/cdefs.h;sys/ioctl.h;sys/mount.h exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_8d8a1/fast && /usr/bin/make  -f CMakeFiles/cmTC_8d8a1.dir/build.make CMakeFiles/cmTC_8d8a1.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8d8a1.dir/HAVE_SYS_MOUNT_H.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_8d8a1.dir/HAVE_SYS_MOUNT_H.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_SYS_MOUNT_H.c
+In file included from /usr/include/linux/fs.h:19,
+                 from /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_SYS_MOUNT_H.c:13:
+/usr/include/sys/mount.h:35:3: error: expected identifier before numeric constant
+   35 |   MS_RDONLY = 1,  /* Mount read-only.  */
+      |   ^~~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_8d8a1.dir/build.make:78: CMakeFiles/cmTC_8d8a1.dir/HAVE_SYS_MOUNT_H.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_8d8a1/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <ext2fs/ext2_fs.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/acl.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/mount.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;ext2fs/ext2_fs.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/acl.h;sys/cdefs.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/richacl.h exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_d8ed5/fast && /usr/bin/make  -f CMakeFiles/cmTC_d8ed5.dir/build.make CMakeFiles/cmTC_d8ed5.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d8ed5.dir/HAVE_SYS_RICHACL_H.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_d8ed5.dir/HAVE_SYS_RICHACL_H.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_SYS_RICHACL_H.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_SYS_RICHACL_H.c:33:10: fatal error: sys/richacl.h: No such file or directory
+   33 | #include <sys/richacl.h>
+      |          ^~~~~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_d8ed5.dir/build.make:78: CMakeFiles/cmTC_d8ed5.dir/HAVE_SYS_RICHACL_H.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_d8ed5/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <ext2fs/ext2_fs.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/acl.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/richacl.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;ext2fs/ext2_fs.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/acl.h;sys/cdefs.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/select.h;sys/stat.h;sys/statfs.h;sys/statvfs.h;sys/sysmacros.h;sys/time.h;sys/utsname.h;sys/vfs.h;sys/wait.h;sys/xattr.h;time.h;unistd.h;utime.h;wchar.h;wctype.h;windows.h exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_3a1bc/fast && /usr/bin/make  -f CMakeFiles/cmTC_3a1bc.dir/build.make CMakeFiles/cmTC_3a1bc.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3a1bc.dir/HAVE_WINDOWS_H.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_3a1bc.dir/HAVE_WINDOWS_H.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_WINDOWS_H.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_WINDOWS_H.c:48:10: fatal error: windows.h: No such file or directory
+   48 | #include <windows.h>
+      |          ^~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_3a1bc.dir/build.make:78: CMakeFiles/cmTC_3a1bc.dir/HAVE_WINDOWS_H.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_3a1bc/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <ext2fs/ext2_fs.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/acl.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/select.h>
+#include <sys/stat.h>
+#include <sys/statfs.h>
+#include <sys/statvfs.h>
+#include <sys/sysmacros.h>
+#include <sys/time.h>
+#include <sys/utsname.h>
+#include <sys/vfs.h>
+#include <sys/wait.h>
+#include <sys/xattr.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <wchar.h>
+#include <wctype.h>
+#include <windows.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;ext2fs/ext2_fs.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/acl.h;sys/cdefs.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/select.h;sys/stat.h;sys/statfs.h;sys/statvfs.h;sys/sysmacros.h;sys/time.h;sys/utsname.h;sys/vfs.h;sys/wait.h;sys/xattr.h;time.h;unistd.h;utime.h;wchar.h;wctype.h;wincrypt.h exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_58c7c/fast && /usr/bin/make  -f CMakeFiles/cmTC_58c7c.dir/build.make CMakeFiles/cmTC_58c7c.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_58c7c.dir/HAVE_WINCRYPT_H.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_58c7c.dir/HAVE_WINCRYPT_H.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_WINCRYPT_H.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_WINCRYPT_H.c:48:10: fatal error: wincrypt.h: No such file or directory
+   48 | #include <wincrypt.h>
+      |          ^~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_58c7c.dir/build.make:78: CMakeFiles/cmTC_58c7c.dir/HAVE_WINCRYPT_H.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_58c7c/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <ext2fs/ext2_fs.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/acl.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/select.h>
+#include <sys/stat.h>
+#include <sys/statfs.h>
+#include <sys/statvfs.h>
+#include <sys/sysmacros.h>
+#include <sys/time.h>
+#include <sys/utsname.h>
+#include <sys/vfs.h>
+#include <sys/wait.h>
+#include <sys/xattr.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <wchar.h>
+#include <wctype.h>
+#include <wincrypt.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;ext2fs/ext2_fs.h;fcntl.h;grp.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdlib.h;string.h;strings.h;sys/acl.h;sys/cdefs.h;sys/ioctl.h;sys/param.h;sys/poll.h;sys/select.h;sys/stat.h;sys/statfs.h;sys/statvfs.h;sys/sysmacros.h;sys/time.h;sys/utsname.h;sys/vfs.h;sys/wait.h;sys/xattr.h;time.h;unistd.h;utime.h;wchar.h;wctype.h;winioctl.h exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_9903f/fast && /usr/bin/make  -f CMakeFiles/cmTC_9903f.dir/build.make CMakeFiles/cmTC_9903f.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9903f.dir/HAVE_WINIOCTL_H.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_9903f.dir/HAVE_WINIOCTL_H.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_WINIOCTL_H.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CheckIncludeFiles/HAVE_WINIOCTL_H.c:48:10: fatal error: winioctl.h: No such file or directory
+   48 | #include <winioctl.h>
+      |          ^~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_9903f.dir/build.make:78: CMakeFiles/cmTC_9903f.dir/HAVE_WINIOCTL_H.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_9903f/fast] Error 2
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <ext2fs/ext2_fs.h>
+#include <fcntl.h>
+#include <grp.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/acl.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/select.h>
+#include <sys/stat.h>
+#include <sys/statfs.h>
+#include <sys/statvfs.h>
+#include <sys/sysmacros.h>
+#include <sys/time.h>
+#include <sys/utsname.h>
+#include <sys/vfs.h>
+#include <sys/wait.h>
+#include <sys/xattr.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <wchar.h>
+#include <wctype.h>
+#include <winioctl.h>
+
+
+int main(void){return 0;}
+
+Determining if the function getvfsbyname exists failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_9b1cd/fast && /usr/bin/make  -f CMakeFiles/cmTC_9b1cd.dir/build.make CMakeFiles/cmTC_9b1cd.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9b1cd.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -w -DCHECK_FUNCTION_EXISTS=getvfsbyname  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_9b1cd.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.20/Modules/CheckFunctionExists.c
+Linking C executable cmTC_9b1cd
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9b1cd.dir/link.txt --verbose=1
+/usr/bin/cc  -w -DCHECK_FUNCTION_EXISTS=getvfsbyname  -fno-builtin CMakeFiles/cmTC_9b1cd.dir/CheckFunctionExists.c.o -o cmTC_9b1cd 
+/usr/bin/ld: CMakeFiles/cmTC_9b1cd.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `getvfsbyname'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_9b1cd.dir/build.make:99: cmTC_9b1cd] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_9b1cd/fast] Error 2
+
+
+
+Determining if the function lchflags exists failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_fe8f5/fast && /usr/bin/make  -f CMakeFiles/cmTC_fe8f5.dir/build.make CMakeFiles/cmTC_fe8f5.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fe8f5.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -w -DCHECK_FUNCTION_EXISTS=lchflags  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_fe8f5.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.20/Modules/CheckFunctionExists.c
+Linking C executable cmTC_fe8f5
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fe8f5.dir/link.txt --verbose=1
+/usr/bin/cc  -w -DCHECK_FUNCTION_EXISTS=lchflags  -fno-builtin CMakeFiles/cmTC_fe8f5.dir/CheckFunctionExists.c.o -o cmTC_fe8f5 
+/usr/bin/ld: CMakeFiles/cmTC_fe8f5.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `lchflags'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_fe8f5.dir/build.make:99: cmTC_fe8f5] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_fe8f5/fast] Error 2
+
+
+
+Determining if the function readpassphrase exists failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_f3c47/fast && /usr/bin/make  -f CMakeFiles/cmTC_f3c47.dir/build.make CMakeFiles/cmTC_f3c47.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f3c47.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -w -DCHECK_FUNCTION_EXISTS=readpassphrase  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_f3c47.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.20/Modules/CheckFunctionExists.c
+Linking C executable cmTC_f3c47
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f3c47.dir/link.txt --verbose=1
+/usr/bin/cc  -w -DCHECK_FUNCTION_EXISTS=readpassphrase  -fno-builtin CMakeFiles/cmTC_f3c47.dir/CheckFunctionExists.c.o -o cmTC_f3c47 
+/usr/bin/ld: CMakeFiles/cmTC_f3c47.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `readpassphrase'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_f3c47.dir/build.make:99: cmTC_f3c47] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_f3c47/fast] Error 2
+
+
+
+Determining if the function strncpy_s exists failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_73f04/fast && /usr/bin/make  -f CMakeFiles/cmTC_73f04.dir/build.make CMakeFiles/cmTC_73f04.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_73f04.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -w -DCHECK_FUNCTION_EXISTS=strncpy_s  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_73f04.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.20/Modules/CheckFunctionExists.c
+Linking C executable cmTC_73f04
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_73f04.dir/link.txt --verbose=1
+/usr/bin/cc  -w -DCHECK_FUNCTION_EXISTS=strncpy_s  -fno-builtin CMakeFiles/cmTC_73f04.dir/CheckFunctionExists.c.o -o cmTC_73f04 
+/usr/bin/ld: CMakeFiles/cmTC_73f04.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `strncpy_s'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_73f04.dir/build.make:99: cmTC_73f04] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_73f04/fast] Error 2
+
+
+
+Determining if the function _ctime64_s exists failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_90e7e/fast && /usr/bin/make  -f CMakeFiles/cmTC_90e7e.dir/build.make CMakeFiles/cmTC_90e7e.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_90e7e.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -w -DCHECK_FUNCTION_EXISTS=_ctime64_s  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_90e7e.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.20/Modules/CheckFunctionExists.c
+Linking C executable cmTC_90e7e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_90e7e.dir/link.txt --verbose=1
+/usr/bin/cc  -w -DCHECK_FUNCTION_EXISTS=_ctime64_s  -fno-builtin CMakeFiles/cmTC_90e7e.dir/CheckFunctionExists.c.o -o cmTC_90e7e 
+/usr/bin/ld: CMakeFiles/cmTC_90e7e.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `_ctime64_s'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_90e7e.dir/build.make:99: cmTC_90e7e] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_90e7e/fast] Error 2
+
+
+
+Determining if the function _fseeki64 exists failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_01afc/fast && /usr/bin/make  -f CMakeFiles/cmTC_01afc.dir/build.make CMakeFiles/cmTC_01afc.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_01afc.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -w -DCHECK_FUNCTION_EXISTS=_fseeki64  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_01afc.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.20/Modules/CheckFunctionExists.c
+Linking C executable cmTC_01afc
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_01afc.dir/link.txt --verbose=1
+/usr/bin/cc  -w -DCHECK_FUNCTION_EXISTS=_fseeki64  -fno-builtin CMakeFiles/cmTC_01afc.dir/CheckFunctionExists.c.o -o cmTC_01afc 
+/usr/bin/ld: CMakeFiles/cmTC_01afc.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `_fseeki64'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_01afc.dir/build.make:99: cmTC_01afc] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_01afc/fast] Error 2
+
+
+
+Determining if the function _get_timezone exists failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_b34f5/fast && /usr/bin/make  -f CMakeFiles/cmTC_b34f5.dir/build.make CMakeFiles/cmTC_b34f5.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b34f5.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -w -DCHECK_FUNCTION_EXISTS=_get_timezone  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_b34f5.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.20/Modules/CheckFunctionExists.c
+Linking C executable cmTC_b34f5
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b34f5.dir/link.txt --verbose=1
+/usr/bin/cc  -w -DCHECK_FUNCTION_EXISTS=_get_timezone  -fno-builtin CMakeFiles/cmTC_b34f5.dir/CheckFunctionExists.c.o -o cmTC_b34f5 
+/usr/bin/ld: CMakeFiles/cmTC_b34f5.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `_get_timezone'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_b34f5.dir/build.make:99: cmTC_b34f5] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_b34f5/fast] Error 2
+
+
+
+Determining if the function _gmtime64_s exists failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_926ca/fast && /usr/bin/make  -f CMakeFiles/cmTC_926ca.dir/build.make CMakeFiles/cmTC_926ca.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_926ca.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -w -DCHECK_FUNCTION_EXISTS=_gmtime64_s  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_926ca.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.20/Modules/CheckFunctionExists.c
+Linking C executable cmTC_926ca
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_926ca.dir/link.txt --verbose=1
+/usr/bin/cc  -w -DCHECK_FUNCTION_EXISTS=_gmtime64_s  -fno-builtin CMakeFiles/cmTC_926ca.dir/CheckFunctionExists.c.o -o cmTC_926ca 
+/usr/bin/ld: CMakeFiles/cmTC_926ca.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `_gmtime64_s'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_926ca.dir/build.make:99: cmTC_926ca] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_926ca/fast] Error 2
+
+
+
+Determining if the function _localtime64_s exists failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_c6836/fast && /usr/bin/make  -f CMakeFiles/cmTC_c6836.dir/build.make CMakeFiles/cmTC_c6836.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c6836.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -w -DCHECK_FUNCTION_EXISTS=_localtime64_s  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_c6836.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.20/Modules/CheckFunctionExists.c
+Linking C executable cmTC_c6836
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c6836.dir/link.txt --verbose=1
+/usr/bin/cc  -w -DCHECK_FUNCTION_EXISTS=_localtime64_s  -fno-builtin CMakeFiles/cmTC_c6836.dir/CheckFunctionExists.c.o -o cmTC_c6836 
+/usr/bin/ld: CMakeFiles/cmTC_c6836.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `_localtime64_s'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_c6836.dir/build.make:99: cmTC_c6836] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_c6836/fast] Error 2
+
+
+
+Determining if the function _mkgmtime64 exists failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_bc64c/fast && /usr/bin/make  -f CMakeFiles/cmTC_bc64c.dir/build.make CMakeFiles/cmTC_bc64c.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bc64c.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -w -DCHECK_FUNCTION_EXISTS=_mkgmtime64  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_bc64c.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.20/Modules/CheckFunctionExists.c
+Linking C executable cmTC_bc64c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bc64c.dir/link.txt --verbose=1
+/usr/bin/cc  -w -DCHECK_FUNCTION_EXISTS=_mkgmtime64  -fno-builtin CMakeFiles/cmTC_bc64c.dir/CheckFunctionExists.c.o -o cmTC_bc64c 
+/usr/bin/ld: CMakeFiles/cmTC_bc64c.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `_mkgmtime64'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_bc64c.dir/build.make:99: cmTC_bc64c] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_bc64c/fast] Error 2
+
+
+
+Determining if the function cygwin_conv_path exists failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_9b585/fast && /usr/bin/make  -f CMakeFiles/cmTC_9b585.dir/build.make CMakeFiles/cmTC_9b585.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9b585.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -w -DCHECK_FUNCTION_EXISTS=cygwin_conv_path  -fno-builtin -std=gnu11 -o CMakeFiles/cmTC_9b585.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.20/Modules/CheckFunctionExists.c
+Linking C executable cmTC_9b585
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9b585.dir/link.txt --verbose=1
+/usr/bin/cc  -w -DCHECK_FUNCTION_EXISTS=cygwin_conv_path  -fno-builtin CMakeFiles/cmTC_9b585.dir/CheckFunctionExists.c.o -o cmTC_9b585 
+/usr/bin/ld: CMakeFiles/cmTC_9b585.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `cygwin_conv_path'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_9b585.dir/build.make:99: cmTC_9b585] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_9b585/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test HAVE_STRUCT_VFSCONF failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_9367c/fast && /usr/bin/make  -f CMakeFiles/cmTC_9367c.dir/build.make CMakeFiles/cmTC_9367c.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9367c.dir/src.c.o
+/usr/bin/cc -DHAVE_STRUCT_VFSCONF  -w  -std=gnu11 -o CMakeFiles/cmTC_9367c.dir/src.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c:3:33: error: storage size of ‘v’ isn’t known
+    3 | int main(void) { struct vfsconf v; return sizeof(v);}
+      |                                 ^
+make[1]: *** [CMakeFiles/cmTC_9367c.dir/build.make:78: CMakeFiles/cmTC_9367c.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_9367c/fast] Error 2
+
+
+Source file was:
+#include <sys/types.h>
+#include <sys/mount.h>
+int main(void) { struct vfsconf v; return sizeof(v);}
+Performing C SOURCE FILE Test HAVE_STRUCT_XVFSCONF failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_81a67/fast && /usr/bin/make  -f CMakeFiles/cmTC_81a67.dir/build.make CMakeFiles/cmTC_81a67.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_81a67.dir/src.c.o
+/usr/bin/cc -DHAVE_STRUCT_XVFSCONF  -w  -std=gnu11 -o CMakeFiles/cmTC_81a67.dir/src.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c:3:34: error: storage size of ‘v’ isn’t known
+    3 | int main(void) { struct xvfsconf v; return sizeof(v);}
+      |                                  ^
+make[1]: *** [CMakeFiles/cmTC_81a67.dir/build.make:78: CMakeFiles/cmTC_81a67.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_81a67/fast] Error 2
+
+
+Source file was:
+#include <sys/types.h>
+#include <sys/mount.h>
+int main(void) { struct xvfsconf v; return sizeof(v);}
+Performing C SOURCE FILE Test MAJOR_IN_MKDEV failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_0339f/fast && /usr/bin/make  -f CMakeFiles/cmTC_0339f.dir/build.make CMakeFiles/cmTC_0339f.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0339f.dir/src.c.o
+/usr/bin/cc -DMAJOR_IN_MKDEV  -w  -std=gnu11 -o CMakeFiles/cmTC_0339f.dir/src.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c:1:10: fatal error: sys/mkdev.h: No such file or directory
+    1 | #include <sys/mkdev.h>
+      |          ^~~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_0339f.dir/build.make:78: CMakeFiles/cmTC_0339f.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_0339f/fast] Error 2
+
+
+Source file was:
+#include <sys/mkdev.h>
+int main() { return major(256); }
+Performing C SOURCE FILE Test HAVE_LZMA_STREAM_ENCODER_MT failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_7c035/fast && /usr/bin/make  -f CMakeFiles/cmTC_7c035.dir/build.make CMakeFiles/cmTC_7c035.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7c035.dir/src.c.o
+/usr/bin/cc -DHAVE_LZMA_STREAM_ENCODER_MT -I/home/eli/documents/cmake/Utilities/cmliblzma/liblzma/api -w  -std=gnu11 -o CMakeFiles/cmTC_7c035.dir/src.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_7c035
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7c035.dir/link.txt --verbose=1
+/usr/bin/cc  -w  CMakeFiles/cmTC_7c035.dir/src.c.o -o cmTC_7c035  -lcmliblzma 
+/usr/bin/ld: cannot find -lcmliblzma
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_7c035.dir/build.make:99: cmTC_7c035] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_7c035/fast] Error 2
+
+
+Source file was:
+#include <lzma.h>
+#if LZMA_VERSION < 50020000
+#error unsupported
+#endif
+int main(void){lzma_stream_encoder_mt(0, 0); return 0;}
+Determining if the EFTYPE exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_07305/fast && /usr/bin/make  -f CMakeFiles/cmTC_07305.dir/build.make CMakeFiles/cmTC_07305.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_07305.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_07305.dir/CheckSymbolExists.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘EFTYPE’ undeclared (first use in this function)
+    8 |   return ((int*)(&EFTYPE))[argc];
+      |                   ^~~~~~
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_07305.dir/build.make:78: CMakeFiles/cmTC_07305.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_07305/fast] Error 2
+
+
+File /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <errno.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef EFTYPE
+  return ((int*)(&EFTYPE))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the D_MD_ORDER exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_99587/fast && /usr/bin/make  -f CMakeFiles/cmTC_99587.dir/build.make CMakeFiles/cmTC_99587.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_99587.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -w  -std=gnu11 -o CMakeFiles/cmTC_99587.dir/CheckSymbolExists.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘D_MD_ORDER’ undeclared (first use in this function)
+    8 |   return ((int*)(&D_MD_ORDER))[argc];
+      |                   ^~~~~~~~~~
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_99587.dir/build.make:78: CMakeFiles/cmTC_99587.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_99587/fast] Error 2
+
+
+File /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <langinfo.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef D_MD_ORDER
+  return ((int*)(&D_MD_ORDER))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test HAVE_STRUCT_TM___TM_GMTOFF failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_b677f/fast && /usr/bin/make  -f CMakeFiles/cmTC_b677f.dir/build.make CMakeFiles/cmTC_b677f.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b677f.dir/src.c.o
+/usr/bin/cc -DHAVE_STRUCT_TM___TM_GMTOFF  -w  -std=gnu11 -o CMakeFiles/cmTC_b677f.dir/src.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c:6:34: error: ‘struct tm’ has no member named ‘__tm_gmtoff’; did you mean ‘tm_gmtoff’?
+    6 |   (void)sizeof(((struct tm *)0)->__tm_gmtoff);
+      |                                  ^~~~~~~~~~~
+      |                                  tm_gmtoff
+make[1]: *** [CMakeFiles/cmTC_b677f.dir/build.make:78: CMakeFiles/cmTC_b677f.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_b677f/fast] Error 2
+
+
+Source file was:
+
+#include <time.h>
+
+int main()
+{
+  (void)sizeof(((struct tm *)0)->__tm_gmtoff);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STATFS_F_NAMEMAX failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_82bc8/fast && /usr/bin/make  -f CMakeFiles/cmTC_82bc8.dir/build.make CMakeFiles/cmTC_82bc8.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_82bc8.dir/src.c.o
+/usr/bin/cc -DHAVE_STRUCT_STATFS_F_NAMEMAX  -w  -std=gnu11 -o CMakeFiles/cmTC_82bc8.dir/src.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c:7:36: error: invalid use of undefined type ‘struct statfs’
+    7 |   (void)sizeof(((struct statfs *)0)->f_namemax);
+      |                                    ^~
+make[1]: *** [CMakeFiles/cmTC_82bc8.dir/build.make:78: CMakeFiles/cmTC_82bc8.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_82bc8/fast] Error 2
+
+
+Source file was:
+
+#include <sys/param.h>
+#include <sys/mount.h>
+
+int main()
+{
+  (void)sizeof(((struct statfs *)0)->f_namemax);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_BIRTHTIME failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_1cbdb/fast && /usr/bin/make  -f CMakeFiles/cmTC_1cbdb.dir/build.make CMakeFiles/cmTC_1cbdb.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1cbdb.dir/src.c.o
+/usr/bin/cc -DHAVE_STRUCT_STAT_ST_BIRTHTIME  -w  -std=gnu11 -o CMakeFiles/cmTC_1cbdb.dir/src.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c:7:34: error: ‘struct stat’ has no member named ‘st_birthtime’
+    7 |   (void)sizeof(((struct stat *)0)->st_birthtime);
+      |                                  ^~
+make[1]: *** [CMakeFiles/cmTC_1cbdb.dir/build.make:78: CMakeFiles/cmTC_1cbdb.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_1cbdb/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_birthtime);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_BIRTHTIMESPEC_TV_NSEC failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_a83fc/fast && /usr/bin/make  -f CMakeFiles/cmTC_a83fc.dir/build.make CMakeFiles/cmTC_a83fc.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a83fc.dir/src.c.o
+/usr/bin/cc -DHAVE_STRUCT_STAT_ST_BIRTHTIMESPEC_TV_NSEC  -w  -std=gnu11 -o CMakeFiles/cmTC_a83fc.dir/src.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c:7:34: error: ‘struct stat’ has no member named ‘st_birthtimespec’
+    7 |   (void)sizeof(((struct stat *)0)->st_birthtimespec.tv_nsec);
+      |                                  ^~
+make[1]: *** [CMakeFiles/cmTC_a83fc.dir/build.make:78: CMakeFiles/cmTC_a83fc.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_a83fc/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_birthtimespec.tv_nsec);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_MTIMESPEC_TV_NSEC failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_3896d/fast && /usr/bin/make  -f CMakeFiles/cmTC_3896d.dir/build.make CMakeFiles/cmTC_3896d.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3896d.dir/src.c.o
+/usr/bin/cc -DHAVE_STRUCT_STAT_ST_MTIMESPEC_TV_NSEC  -w  -std=gnu11 -o CMakeFiles/cmTC_3896d.dir/src.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c:7:34: error: ‘struct stat’ has no member named ‘st_mtimespec’
+    7 |   (void)sizeof(((struct stat *)0)->st_mtimespec.tv_nsec);
+      |                                  ^~
+make[1]: *** [CMakeFiles/cmTC_3896d.dir/build.make:78: CMakeFiles/cmTC_3896d.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_3896d/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_mtimespec.tv_nsec);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_MTIME_N failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_1b260/fast && /usr/bin/make  -f CMakeFiles/cmTC_1b260.dir/build.make CMakeFiles/cmTC_1b260.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1b260.dir/src.c.o
+/usr/bin/cc -DHAVE_STRUCT_STAT_ST_MTIME_N  -w  -std=gnu11 -o CMakeFiles/cmTC_1b260.dir/src.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c:7:36: error: ‘struct stat’ has no member named ‘st_mtime_n’; did you mean ‘st_mtim’?
+    7 |   (void)sizeof(((struct stat *)0)->st_mtime_n);
+      |                                    ^~~~~~~~~~
+      |                                    st_mtim
+make[1]: *** [CMakeFiles/cmTC_1b260.dir/build.make:78: CMakeFiles/cmTC_1b260.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_1b260/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_mtime_n);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_UMTIME failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_828a2/fast && /usr/bin/make  -f CMakeFiles/cmTC_828a2.dir/build.make CMakeFiles/cmTC_828a2.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_828a2.dir/src.c.o
+/usr/bin/cc -DHAVE_STRUCT_STAT_ST_UMTIME  -w  -std=gnu11 -o CMakeFiles/cmTC_828a2.dir/src.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c:7:36: error: ‘struct stat’ has no member named ‘st_umtime’; did you mean ‘st_mtim’?
+    7 |   (void)sizeof(((struct stat *)0)->st_umtime);
+      |                                    ^~~~~~~~~
+      |                                    st_mtim
+make[1]: *** [CMakeFiles/cmTC_828a2.dir/build.make:78: CMakeFiles/cmTC_828a2.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_828a2/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_umtime);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_MTIME_USEC failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_b3d03/fast && /usr/bin/make  -f CMakeFiles/cmTC_b3d03.dir/build.make CMakeFiles/cmTC_b3d03.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b3d03.dir/src.c.o
+/usr/bin/cc -DHAVE_STRUCT_STAT_ST_MTIME_USEC  -w  -std=gnu11 -o CMakeFiles/cmTC_b3d03.dir/src.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c:7:34: error: ‘struct stat’ has no member named ‘st_mtime_usec’
+    7 |   (void)sizeof(((struct stat *)0)->st_mtime_usec);
+      |                                  ^~
+make[1]: *** [CMakeFiles/cmTC_b3d03.dir/build.make:78: CMakeFiles/cmTC_b3d03.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_b3d03/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_mtime_usec);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_FLAGS failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_3d00a/fast && /usr/bin/make  -f CMakeFiles/cmTC_3d00a.dir/build.make CMakeFiles/cmTC_3d00a.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3d00a.dir/src.c.o
+/usr/bin/cc -DHAVE_STRUCT_STAT_ST_FLAGS  -w  -std=gnu11 -o CMakeFiles/cmTC_3d00a.dir/src.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c:7:34: error: ‘struct stat’ has no member named ‘st_flags’
+    7 |   (void)sizeof(((struct stat *)0)->st_flags);
+      |                                  ^~
+make[1]: *** [CMakeFiles/cmTC_3d00a.dir/build.make:78: CMakeFiles/cmTC_3d00a.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_3d00a/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_flags);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STATVFS_F_IOSIZE failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_1b1c2/fast && /usr/bin/make  -f CMakeFiles/cmTC_1b1c2.dir/build.make CMakeFiles/cmTC_1b1c2.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1b1c2.dir/src.c.o
+/usr/bin/cc -DHAVE_STRUCT_STATVFS_F_IOSIZE  -w  -std=gnu11 -o CMakeFiles/cmTC_1b1c2.dir/src.c.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c: In function ‘main’:
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/src.c:7:39: error: ‘struct statvfs’ has no member named ‘f_iosize’; did you mean ‘f_bsize’?
+    7 |   (void)sizeof(((struct statvfs *)0)->f_iosize);
+      |                                       ^~~~~~~~
+      |                                       f_bsize
+make[1]: *** [CMakeFiles/cmTC_1b1c2.dir/build.make:78: CMakeFiles/cmTC_1b1c2.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_1b1c2/fast] Error 2
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/statvfs.h>
+
+int main()
+{
+  (void)sizeof(((struct statvfs *)0)->f_iosize);
+  return 0;
+}
+
+Looking for a Fortran compiler failed with the following output:
+CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 2.8.12 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+-- The Fortran compiler identification is unknown
+CMake Error at CMakeLists.txt:2 (project):
+  No CMAKE_Fortran_COMPILER could be found.
+
+  Tell CMake where to find the compiler by setting either the environment
+  variable "FC" or the CMake cache entry CMAKE_Fortran_COMPILER to the full
+  path to the compiler, or to the compiler name if it is in the PATH.
+
+
+-- Configuring incomplete, errors occurred!
+See also "/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/CMakeFiles/CheckFortran/CMakeFiles/CMakeOutput.log".
+See also "/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/CMakeFiles/CheckFortran/CMakeFiles/CMakeError.log".
+
+Determining if the Q_WS_WIN exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_eca6d/fast && /usr/bin/make  -f CMakeFiles/cmTC_eca6d.dir/build.make CMakeFiles/cmTC_eca6d.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_eca6d.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++  -I/usr/include/qt4 -Wnon-virtual-dtor -Wcast-align -Wchar-subscripts -Wall -W -Wshadow -Wpointer-arith -Wformat-security -Wundef  -std=gnu++17 -o CMakeFiles/cmTC_eca6d.dir/CheckSymbolExists.cxx.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘Q_WS_WIN’ was not declared in this scope
+    8 |   return ((int*)(&Q_WS_WIN))[argc];
+      |                   ^~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_eca6d.dir/build.make:78: CMakeFiles/cmTC_eca6d.dir/CheckSymbolExists.cxx.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_eca6d/fast] Error 2
+
+
+File /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_WIN
+  return ((int*)(&Q_WS_WIN))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the Q_WS_QWS exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_46857/fast && /usr/bin/make  -f CMakeFiles/cmTC_46857.dir/build.make CMakeFiles/cmTC_46857.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_46857.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++  -I/usr/include/qt4 -Wnon-virtual-dtor -Wcast-align -Wchar-subscripts -Wall -W -Wshadow -Wpointer-arith -Wformat-security -Wundef  -std=gnu++17 -o CMakeFiles/cmTC_46857.dir/CheckSymbolExists.cxx.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘Q_WS_QWS’ was not declared in this scope
+    8 |   return ((int*)(&Q_WS_QWS))[argc];
+      |                   ^~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_46857.dir/build.make:78: CMakeFiles/cmTC_46857.dir/CheckSymbolExists.cxx.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_46857/fast] Error 2
+
+
+File /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_QWS
+  return ((int*)(&Q_WS_QWS))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the Q_WS_MAC exist failed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_bc8a4/fast && /usr/bin/make  -f CMakeFiles/cmTC_bc8a4.dir/build.make CMakeFiles/cmTC_bc8a4.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_bc8a4.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++  -I/usr/include/qt4 -Wnon-virtual-dtor -Wcast-align -Wchar-subscripts -Wall -W -Wshadow -Wpointer-arith -Wformat-security -Wundef  -std=gnu++17 -o CMakeFiles/cmTC_bc8a4.dir/CheckSymbolExists.cxx.o -c /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘Q_WS_MAC’ was not declared in this scope
+    8 |   return ((int*)(&Q_WS_MAC))[argc];
+      |                   ^~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_bc8a4.dir/build.make:78: CMakeFiles/cmTC_bc8a4.dir/CheckSymbolExists.cxx.o] Error 1
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_bc8a4/fast] Error 2
+
+
+File /home/eli/documents/oss-repo-template/labs/lab-07/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_MAC
+  return ((int*)(&Q_WS_MAC))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}

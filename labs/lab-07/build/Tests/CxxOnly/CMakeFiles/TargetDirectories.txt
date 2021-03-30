@@ -1,0 +1,6 @@
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/CxxOnly/CMakeFiles/rebuild_cache.dir
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/CxxOnly/CMakeFiles/testCxxModule.dir
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/CxxOnly/CMakeFiles/CxxOnly.dir
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/CxxOnly/CMakeFiles/testcxx2.dir
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/CxxOnly/CMakeFiles/edit_cache.dir
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/CxxOnly/CMakeFiles/testcxx1.my.dir

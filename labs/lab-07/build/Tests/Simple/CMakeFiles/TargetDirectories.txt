@@ -1,0 +1,4 @@
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/Simple/CMakeFiles/rebuild_cache.dir
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/Simple/CMakeFiles/edit_cache.dir
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/Simple/CMakeFiles/simpleLib.dir
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/Simple/CMakeFiles/Simple.dir

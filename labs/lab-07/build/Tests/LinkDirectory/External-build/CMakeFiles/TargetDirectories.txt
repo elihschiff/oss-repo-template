@@ -1,0 +1,5 @@
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/LinkDirectory/External-build/CMakeFiles/rebuild_cache.dir
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/LinkDirectory/External-build/CMakeFiles/edit_cache.dir
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/LinkDirectory/External-build/CMakeFiles/myexe.dir
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/LinkDirectory/External-build/CMakeFiles/myexe3.dir
+/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/LinkDirectory/External-build/CMakeFiles/myexe2.dir

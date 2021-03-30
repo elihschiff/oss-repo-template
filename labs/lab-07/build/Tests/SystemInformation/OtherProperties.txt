@@ -1,0 +1,3 @@
+INCLUDE_DIRECTORY: /home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/SystemInformation
+INCLUDE_DIRECTORY: /home/eli/documents/cmake/Tests/SystemInformation
+INCLUDE_REGULAR_EXPRESSION: ^.*$

@@ -1,0 +1,14 @@
+Upload files:
+0	Configure.xml
+1	Build.xml
+2	Test.xml
+3	Coverage.xml
+4	CoverageLog-0.xml
+5	Done.xml
+	Upload file: /home/eli/documents/oss-repo-template/labs/lab-07/build/Testing/20210330-0152/Configure.xml to eliarch___Linux-c++___20210330-0152-Experimental___XML___Configure.xml
+	Upload file: /home/eli/documents/oss-repo-template/labs/lab-07/build/Testing/20210330-0152/Build.xml to eliarch___Linux-c++___20210330-0152-Experimental___XML___Build.xml
+	Upload file: /home/eli/documents/oss-repo-template/labs/lab-07/build/Testing/20210330-0152/Test.xml to eliarch___Linux-c++___20210330-0152-Experimental___XML___Test.xml
+	Upload file: /home/eli/documents/oss-repo-template/labs/lab-07/build/Testing/20210330-0152/Coverage.xml to eliarch___Linux-c++___20210330-0152-Experimental___XML___Coverage.xml
+	Upload file: /home/eli/documents/oss-repo-template/labs/lab-07/build/Testing/20210330-0152/CoverageLog-0.xml to eliarch___Linux-c++___20210330-0152-Experimental___XML___CoverageLog-0.xml
+	Upload file: /home/eli/documents/oss-repo-template/labs/lab-07/build/Testing/20210330-0152/Done.xml to eliarch___Linux-c++___20210330-0152-Experimental___XML___Done.xml
+   Submission successful

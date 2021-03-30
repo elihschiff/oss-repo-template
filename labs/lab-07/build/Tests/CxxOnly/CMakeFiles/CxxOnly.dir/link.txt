@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/CxxOnly.dir/cxxonly.cxx.o -o CxxOnly  -Wl,-rpath,/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/CxxOnly libtestcxx1.my.a libtestcxx2.so 

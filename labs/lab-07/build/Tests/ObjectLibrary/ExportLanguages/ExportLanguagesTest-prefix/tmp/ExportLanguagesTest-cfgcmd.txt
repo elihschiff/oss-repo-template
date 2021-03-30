@@ -1,0 +1,1 @@
+cmd='/home/eli/documents/oss-repo-template/labs/lab-07/build/bin/cmake;-GUnix Makefiles;<SOURCE_DIR><SOURCE_SUBDIR>'

@@ -1,0 +1,42 @@
+Determining if the function wsyncup exists in the /usr/lib/libcurses.so passed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/Source/Checks/Curses-build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_cc089/fast && /usr/bin/make  -f CMakeFiles/cmTC_cc089.dir/build.make CMakeFiles/cmTC_cc089.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/Source/Checks/Curses-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_cc089.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=wsyncup -o CMakeFiles/cmTC_cc089.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.20/Modules/CheckFunctionExists.c
+Linking C executable cmTC_cc089
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cc089.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=wsyncup -rdynamic CMakeFiles/cmTC_cc089.dir/CheckFunctionExists.c.o -o cmTC_cc089  -lcurses 
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/Source/Checks/Curses-build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function cbreak exists in the /usr/lib/libncurses.so passed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/Source/Checks/Curses-build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_1c4a3/fast && /usr/bin/make  -f CMakeFiles/cmTC_1c4a3.dir/build.make CMakeFiles/cmTC_1c4a3.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/Source/Checks/Curses-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1c4a3.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=cbreak -o CMakeFiles/cmTC_1c4a3.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.20/Modules/CheckFunctionExists.c
+Linking C executable cmTC_1c4a3
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1c4a3.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=cbreak -rdynamic CMakeFiles/cmTC_1c4a3.dir/CheckFunctionExists.c.o -o cmTC_1c4a3  -lncurses 
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/Source/Checks/Curses-build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function nodelay exists in the /usr/lib/libncurses.so passed with the following output:
+Change Dir: /home/eli/documents/oss-repo-template/labs/lab-07/build/Source/Checks/Curses-build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_1cdc0/fast && /usr/bin/make  -f CMakeFiles/cmTC_1cdc0.dir/build.make CMakeFiles/cmTC_1cdc0.dir/build
+make[1]: Entering directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/Source/Checks/Curses-build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1cdc0.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=nodelay -o CMakeFiles/cmTC_1cdc0.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.20/Modules/CheckFunctionExists.c
+Linking C executable cmTC_1cdc0
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1cdc0.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=nodelay -rdynamic CMakeFiles/cmTC_1cdc0.dir/CheckFunctionExists.c.o -o cmTC_1cdc0  -lncurses 
+make[1]: Leaving directory '/home/eli/documents/oss-repo-template/labs/lab-07/build/Source/Checks/Curses-build/CMakeFiles/CMakeTmp'
+
+
+

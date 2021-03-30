@@ -1,0 +1,1 @@
+/usr/bin/cc -g -rdynamic CMakeFiles/COnly.dir/conly.c.o CMakeFiles/COnly.dir/foo.c.o -o ../runtime/Debug/COnly  -Wl,-rpath,/home/eli/documents/oss-repo-template/labs/lab-07/build/Tests/OutDir/library/Debug ../archive/Debug/libtestc1_test_debug_postfix.a ../library/Debug/libtestc2_test_debug_postfix.so 

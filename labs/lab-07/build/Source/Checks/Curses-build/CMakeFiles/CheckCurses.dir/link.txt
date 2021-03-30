@@ -1,0 +1,1 @@
+/usr/bin/cc -rdynamic CMakeFiles/CheckCurses.dir/CheckCurses.c.o -o CheckCurses  -lncurses -lform 
