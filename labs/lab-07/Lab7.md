@@ -21,3 +21,10 @@ Here is my fixed file (I highlighted the value I changed)
 
 Here is proof the tests passed after I fixed the file
 ![pass](pass.png)
+
+# Checkpoint 3
+https://github.com/elihschiff/oss-cmake-cicd-test
+
+![pr](pr.png)
+
+![actions](actions.png)
