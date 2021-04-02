@@ -42,7 +42,8 @@ I was getting an issue where port 5000 was in use on my computer so I switched t
 
 Here is the final output after everything is done showing it is working
 
-![mes](mes.png)
-
 [Here is my final Dockerfile](Dockerfile)
+
 [Here is my final docker-compose.yml](docker-compose.yml)
+
+![mes](mes.png)
