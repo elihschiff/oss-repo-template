@@ -44,3 +44,8 @@ index 0de459c..c13c581 100644
 [Here is the code I used](./main.py)
 
 [Here is the output](./output.txt)
+
+
+# Checkpoint 5: Random Word Requester
+
+[Here is the code I used checkpoint5.py](./checkpoint5.py)
