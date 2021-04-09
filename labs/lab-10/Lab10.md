@@ -51,7 +51,7 @@ index 0de459c..c13c581 100644
 [Here is the code I used: checkpoint5.py](./checkpoint5.py)
 
 Here is an example output of a word I looked at more than 1 time
-```json
+```
 {'_id': ObjectId('56fe9e22bad6b23cde07b927'),
  'dates': ['2021-04-09T18:55:39.941878', '2021-04-09T18:55:56.260416'],
  'definition': ' n.  Someone who is either climbing a tall campus building, or '
