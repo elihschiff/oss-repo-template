@@ -37,3 +37,10 @@ index 0de459c..c13c581 100644
  {"_id":{"$oid":"56fe9e22bad6b23cde07b949"},"definition":" v.  To copy onto a reused piece of magnetic tape, e.g., cassette or video tape.","word":"Zurn"}
 +{"_id":{"$oid":"60708acdf2ed3987fa4ec43f"},"word":"Discord","definition":"A chat platform built in electron for connecting with other people."}
 ```
+
+
+# Checkpoint 4: Driving Queries
+
+[Here is the code I used](./main.py)
+
+[Here is the output](./output.txt)
