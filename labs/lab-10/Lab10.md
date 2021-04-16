@@ -1,3 +1,6 @@
+# Checkpoint 0
+https://github.com/elihschiff/drawing-game/discussions/6
+
 # Checkpoint 1: Install MongoDB
 For some reason my mongod is outputting in json so it is harder to read, but the info is still all there.
 ![image](https://user-images.githubusercontent.com/18558130/114214528-69f4d680-9932-11eb-87d4-776a15d8d8f7.png)
