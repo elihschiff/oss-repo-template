@@ -34,11 +34,11 @@ full image
 
 ![shirt1_small](https://user-images.githubusercontent.com/18558130/115061727-886d4b80-9eb7-11eb-9c58-fa5a33d9f994.jpg)
 
-Results from the model. It predicted a Bag which is incorrect.
+Results from the model. It predicted a Shirt which is correct.
 ```
-[[0. 0. 0. 0. 0. 0. 0. 0. 1. 0.]]
-8
-Bag
+[['2.6142525E-02', '4.1069600E-07', '3.0092128E-06', '1.8006484E-06', '1.8877597E-02', '3.7941968E-02', '3.3863478E-01', '1.7488599E-03', '3.0746062E-04', '3.6889956E-05']]
+6
+Shirt
 ```
 
 
@@ -51,11 +51,11 @@ full image
 
 ![shirt2_small](https://user-images.githubusercontent.com/18558130/115059322-658d6800-9eb4-11eb-828a-d4e8c738b919.jpg)
 
-Results from the model. It predicted a Ancle Boot which is incorrect.
+Results from the model. It predicted a shirt which is correct.
 ```
-[[0. 0. 0. 0. 0. 0. 0. 0. 1. 0.]]
-8
-Ancle Boot
+[['3.4609248E-05', '2.4752897E-02', '1.0702686E-07', '1.6138305E-03', '2.3327762E-04', '1.6856515E-04', '3.1762313E-01', '1.4497698E-03', '2.3567527E-02', '2.9529493E-09']]
+6
+Shirt
 ```
 
 ### Image 3
@@ -71,7 +71,7 @@ full image
 
 Results from the model. It predicted a Ancle Boot which is incorrect.
 ```
-[[0. 0. 0. 0. 0. 0. 0. 0. 1. 0.]]
+[['8.3102266E-02', '5.2887301E-02', '3.2739212E-02', '2.9435559E-01', '1.7584716E-03', '2.5870254E-02', '2.6176240E-02', '3.3308908E-03', '4.0431311E-01', '3.6293575E-03']]
 8
 Ancle Boot
 ```
